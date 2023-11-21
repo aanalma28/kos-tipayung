@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        //
+        Schema::create('income', function(Blueprint $table){
             $table->id();
-            $table->string('role');
-            $table->string('name');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('phone');
+            $table->string('month');
+            $table->integer('year');
+            $table->integer('rental_costs');
+            $table->integer('other');
+            $table->integer('income_total');
         });
     }
 
@@ -27,6 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        //
+        Schema::dropIfExists('income');
     }
 };
