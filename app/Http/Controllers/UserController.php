@@ -13,6 +13,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        return view('');
     }
 
     /**
@@ -21,6 +22,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('');
     }
 
     /**
@@ -29,6 +31,28 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:20',
+            'username' => 'required|max:12',
+            'email' => 'required|unique:users|email:dns|max:50',
+            'password' => 'required|min:5|max:20',
+            'phone' => 'required|max:12',
+            'role' => 'required'
+        ]);
+
+        $validateData['password'] = bcrypt($validateData['password']);
+
+        User::create([
+            'role' => $validateData['role'],
+            'name' => $validateData['name'],
+            'username' => $validateData['username'],
+            'email' => $validateData['email'],
+            'password' => $validateData['password'],
+            'phone' => $validateData['phone']
+        ]);
+
+        $request->session()->flash('status', 'Registration Successfull !');
+        return redirect();
     }
 
     /**
@@ -37,6 +61,9 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
+        return view('', [
+            'data' => $user,
+        ]);
     }
 
     /**
@@ -45,6 +72,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        return view('');
     }
 
     /**
@@ -53,6 +81,27 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $validateData = $request->validate([
+            'name' => 'required|max:20',
+            'username' => 'required|max:12',
+            'email' => 'required|unique:users|email:dns|max:50',
+            'password' => 'required|min:5|max:20',
+            'phone' => 'required|max:12',
+            'role' => 'required'
+        ]);
+
+        $validateData['password'] = bcrypt($validateData['password']);
+
+        $user->update([
+            'role' => $validateData['role'],
+            'name' => $validateData['name'],
+            'username' => $validateData['username'],
+            'email' => $validateData['email'],
+            'password' => $validateData['password'],
+            'phone' => $validateData['phone']
+        ]);
+        
+        return redirect('' . $user->id)->with('status', 'User Updated !');
     }
 
     /**
@@ -61,5 +110,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        User::destroy($user->id);
     }
 }
