@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\OutcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +21,18 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/detail', function () {
+    return view('detail');
+});
+
 // user route
-Route::resource('', UserController::class);
+// Route::resource('', UserController::class);
 
 // room route
-Route::resource('', RoomController::class);
+// Route::resource('', RoomController::class);
 
 // income route
-Route::resource('', IncomeController::class);
+// Route::resource('', IncomeController::class);
 
 // outcome route
-Route::resource('', OutcomeController::class);
+// Route::resource('', OutcomeController::class);
