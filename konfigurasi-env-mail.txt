@@ -1,0 +1,10 @@
+kalo pengen jalanin matiin firewall buat ngindarin error ssl
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=kostipayung@gmail.com
+MAIL_PASSWORD=smicvgwzcevohqap
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="kostipayung@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"

@@ -1,6 +1,13 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\RegisterRoomController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('index');
 });
 
@@ -28,3 +35,7 @@ Route::resource('', IncomeController::class);
 
 // outcome route
 Route::resource('', OutcomeController::class);
+
+// register room
+Route::get('/register-room', [RegisterRoomController::class, 'create']);
+Route::post('/register-room', [RegisterRoomController::class, 'index']);
