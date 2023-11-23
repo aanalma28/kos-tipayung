@@ -39,3 +39,11 @@ Route::resource('', OutcomeController::class);
 // register room
 Route::get('/register-room', [RegisterRoomController::class, 'create']);
 Route::post('/register-room', [RegisterRoomController::class, 'index']);
+
+// login route
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+// dashboard controller
+Route::get('/dashboard', [DashboardController::class, 'index']);
