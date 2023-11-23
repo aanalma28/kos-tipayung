@@ -23,7 +23,7 @@ use App\Http\Controllers\RegisterRoomController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing');
 });
 
 
