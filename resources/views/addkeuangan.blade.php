@@ -50,7 +50,7 @@
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan_pemasukan">
                                 Bulan *
                             </label>
-                            <input required
+                            <input required name="bulan_pemasukan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 id="bulan_pemasukan" type="text" placeholder="Bulan">
                         </div>
@@ -60,7 +60,7 @@
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun_pemasukan">
                                 Tahun *
                             </label>
-                            <input required
+                            <input required name="tahun_pemasukan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 id="tahun_pemasukan" type="text" placeholder="Tahun">
                         </div>
@@ -135,7 +135,7 @@
                         <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan_pengeluaran">
                             Bulan *
                         </label>
-                        <input required
+                        <input required name="bulan_pengeluaran"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             id="bulan_pengeluaran" type="text" placeholder="Bulan">
                     </div>
@@ -145,7 +145,7 @@
                         <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun_pengeluaran">
                             Tahun *
                         </label>
-                        <input required
+                        <input required name="tahun_pengeluaran"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             id="tahun_pengeluaran" type="text" placeholder="Tahun">
                     </div>

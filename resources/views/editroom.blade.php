@@ -28,7 +28,7 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="nomor_kamar">
                         Nomor Kamar *
                     </label>
-                    <input required
+                    <input required name="nomor_kamar"
                         value="//value kamar sesuai id//"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="nomor_kamar" type="text" placeholder="01, 02 ...">
@@ -48,7 +48,7 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="deskripsi">
                         Deskripsi *
                     </label>
-                    <textarea required
+                    <textarea required name="deskripsi"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="deskripsi" placeholder="Deskripsi">//value kamar sesuai id//</textarea>
                 </div>
@@ -66,7 +66,7 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="upload_foto">
                         Upload Foto Kamar
                     </label>
-                    <input required
+                    <input required name="foto_kamar"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         name="foto-room" id="foto-room" type="file">
                     <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
