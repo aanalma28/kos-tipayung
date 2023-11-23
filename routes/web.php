@@ -53,14 +53,3 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
 Route::get('/dashboard', [DashboardController::class, 'index']);
-
-Route::get('/test', function(){
-    User::create([
-         'role' => 'sdfsdf',
-         'name' => 'dfgdgd',
-         'username' => 'sdfghf',
-         'email' => 'hjgjgm',
-         'password' => 'werg',
-         'phone' => 'fgtyfg'
-   ]);
-});
