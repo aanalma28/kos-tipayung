@@ -23,10 +23,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/detail', function () {
-    return view('detail');
+
+Route::get('/owner', function () {
+    return view('owner');
 });
 
+Route::get('/form/create-account', function () {
+    return view('createaccount');
+});
 // user route
 // Route::resource('', UserController::class);
 
@@ -40,8 +44,8 @@ Route::get('/detail', function () {
 // Route::resource('', OutcomeController::class);
 
 // register room
-Route::get('/register-room', [RegisterRoomController::class, 'create']);
-Route::post('/register-room', [RegisterRoomController::class, 'index']);
+Route::post('/register-room', [RegisterRoomController::class, 'create']);
+Route::get('/detail', [RegisterRoomController::class, 'index']);
 
 // login route
 Route::get('/login', [LoginController::class, 'index']);

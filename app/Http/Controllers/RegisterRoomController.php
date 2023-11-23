@@ -11,7 +11,7 @@ class RegisterRoomController extends Controller
 {
     //
     public function index(){
-        return view('');
+        return view('/detail');
     }
 
     public function create(Request $request){
