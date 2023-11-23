@@ -19,12 +19,13 @@ use App\Http\Controllers\RegisterRoomController;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/detail', function () {
-    return view('detail');
+
+Route::get('/owner', function () {
+    return view('owner');
 });
 
 // user route
@@ -40,6 +41,6 @@ Route::get('/detail', function () {
 // Route::resource('', OutcomeController::class);
 
 // register room
-Route::get('/register-room', [RegisterRoomController::class, 'create']);
-Route::post('/register-room', [RegisterRoomController::class, 'index']);
+Route::post('/register-room', [RegisterRoomController::class, 'create']);
+Route::get('/detail', [RegisterRoomController::class, 'index']);
 
