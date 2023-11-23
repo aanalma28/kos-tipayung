@@ -31,6 +31,18 @@ Route::get('/owner', function () {
 Route::get('/form/create-account', function () {
     return view('createaccount');
 });
+
+Route::get('/form/create-room', function () {
+    return view('createroom');
+});
+Route::get('/form/edit-room', function () {
+    return view('editroom');
+});
+Route::get('/form/add-keuangan', function () {
+    return view('addkeuangan');
+});
+
+
 // user route
 // Route::resource('', UserController::class);
 
