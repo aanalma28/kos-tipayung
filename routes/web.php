@@ -28,6 +28,9 @@ Route::get('/owner', function () {
     return view('owner');
 });
 
+Route::get('/form/create-account', function () {
+    return view('plusaccount');
+});
 // user route
 // Route::resource('', UserController::class);
 
