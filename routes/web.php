@@ -27,15 +27,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('/owner', function () {
-    return view('owner');
-});
-
 // user route
+// route ini digunakan untuk handle halaman CRUD user di dashboard owner
+// jadi halaman CRUD dalam satu route
+// BERIKUT ADALAH FORMAT DARI URL ROUTE RESOURCE:
+// url /user -> menampilkan halaman dari semua data user
+// url /user/create -> menampilkan halaman form buat user
+// url /user/{idspesifik} -> menampilkan form halaman edit user jika user di klik
 Route::resource('/user', UserController::class);
 
 // room route
-// Route::resource('', RoomController::class);
+// kalo resource handle halaman CRUD dalam satu route
+Route::resource('/room', RoomController::class);
 
 // income route
 // Route::resource('', IncomeController::class);
