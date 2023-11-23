@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\UserModel;
+use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('users')->insert([
+        User::create([
             'role' => 'owner',
             'name' => 'tipayungkos',
             'username' => 'tipayungkos',
