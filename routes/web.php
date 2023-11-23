@@ -37,7 +37,7 @@ Route::get('/form/create-account', function () {
 // Route::resource('', UserController::class);
 
 // room route
-// Route::resource('', RoomController::class);
+Route::resource('/owner/kamar', RoomController::class);
 
 // income route
 // Route::resource('', IncomeController::class);
