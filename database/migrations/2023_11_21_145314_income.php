@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('income', function(Blueprint $table){
             $table->id();
             $table->string('month');
-            $table->integer('year');
-            $table->integer('rental_costs');
-            $table->integer('other');
-            $table->integer('income_total');
+            $table->string('year');
+            $table->string('rental_costs');
+            $table->string('other');
+            $table->string('income_total');
         });
     }
 

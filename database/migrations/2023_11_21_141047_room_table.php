@@ -14,8 +14,8 @@ return new class extends Migration
         //
         Schema::create('room_table', function (Blueprint $table){
             $table->id();
-            $table->integer('room_number');
-            $table->integer('price');
+            $table->string('room_number');
+            $table->string('price');
             $table->string('room_type');
             $table->string('image');
             $table->string('status');

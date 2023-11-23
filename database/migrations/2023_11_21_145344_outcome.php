@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('outcome', function(Blueprint $table){
             $table->id();
             $table->string('month');
-            $table->integer('year');
-            $table->integer('utility_costs');
-            $table->integer('operating_costs');
-            $table->integer('other');
-            $table->integer('outcome_total');
+            $table->string('year');
+            $table->string('utility_costs');
+            $table->string('operating_costs');
+            $table->string('other');
+            $table->string('outcome_total');
         });
     }
 

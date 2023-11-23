@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -42,7 +42,7 @@ class UserController extends Controller
 
         $validateData['password'] = bcrypt($validateData['password']);
 
-        User::create([
+        UserModel::create([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
             'username' => $validateData['username'],
