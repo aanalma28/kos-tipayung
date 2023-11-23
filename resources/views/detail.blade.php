@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Manajemen Kos</title>
-    <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    </script>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-</head>
-<body class="bg-white dark:bg-gray-900">
-    @include('partials.navbar')
+@extends('layouts.guest')
+@section('content')
         <section class="px-20 py-4">
             <div id="default-carousel" class="relative w-4/5 mx-auto" data-carousel="slide">
                 <!-- Carousel wrapper -->
@@ -99,6 +83,11 @@
                                 <!-- Modal body -->
                                 <div class="p-4 md:p-5">
                                     <form class="space-y-4" action="#">
+                                        @csrf
+                                        <div class="hidden">
+                                            <label for="noKamar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Kamar<span class="text-red-600">*</span></label>
+                                            <input type="text" name="noKamar" id="noKamar" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required>
+                                        </div>
                                         <div>
                                             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap <span class="text-red-600">*</span></label>
                                             <input type="text" name="nama" id="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan nama lengkap" required>
@@ -129,6 +118,4 @@
                 </div>
             </div>
         </section>
-    @include('partials.footer')
-</body>
-</html>
+@endsection
