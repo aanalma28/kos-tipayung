@@ -4,8 +4,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterRoomController;
 
 /*
@@ -20,7 +22,7 @@ use App\Http\Controllers\RegisterRoomController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing');
 });
 
 
