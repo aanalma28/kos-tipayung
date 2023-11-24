@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Manajemen Kos | Form Tambah Kamar</title>
+    <style>
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -92,7 +103,7 @@
                             <label class="block text-gray-700 dark:text-gray-200 mb-2">
                                 Total Pemasukan
                             </label>
-                            <span id="total_pemasukan" class="text-gray-900 dark:text-gray-200 text-sm"></span>
+                            <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="total_pemasukan" name="total_pemasukan" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
                         </div>
                         <div class="grid grid-cols-2 gap-8">
                             <button
@@ -115,11 +126,7 @@
             const lainLain = parseFloat(document.getElementById("lain_lain_pemasukan").value) || 0;
 
             const totalPemasukan = uangRental + lainLain;
-            document.getElementById("total_pemasukan").textContent = "Rp " + formatCurrency(totalPemasukan);
-        }
-
-        function formatCurrency(amount) {
-            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total_pemasukan").value = totalPemasukan;
         }
     </script>
     <!-- Section input data pengeluaran -->
@@ -188,7 +195,7 @@
                         <label class="block text-gray-700 dark:text-gray-200 mb-2">
                             Total Pengeluaran
                         </label>
-                        <span id="total_pengeluaran" class="text-gray-900 dark:text-gray-200 text-sm"></span>
+                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="total_pengeluaran" name="total_pengeluaran" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
                         <a id="btn-pm" onclick="toPemasukan()" href="#top" 
@@ -214,7 +221,7 @@
         const biayaLainLain = parseFloat(document.getElementById("biaya_lain_lain").value) || 0;
 
         const totalPengeluaran = biayaUtilitas + biayaOperasional + biayaLainLain;
-        document.getElementById("total_pengeluaran").textContent = "Rp " + formatCurrency(totalPengeluaran);
+        document.getElementById("total_pengeluaran").value = totalPengeluaran;
     }
 </script>
     @include('partials.footer')
