@@ -1,11 +1,14 @@
 <?php
 
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterRoomController;
 
 /*
@@ -20,34 +23,22 @@ use App\Http\Controllers\RegisterRoomController;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
-
-
-Route::get('/owner', function () {
-    return view('owner');
-});
-
-Route::get('/form/create-account', function () {
-    return view('createaccount');
-});
-
-Route::get('/form/create-room', function () {
-    return view('createroom');
-});
-Route::get('/form/edit-room', function () {
-    return view('editroom');
-});
-Route::get('/form/add-keuangan', function () {
-    return view('addkeuangan');
+    return view('landing');
 });
 
 
 // user route
-// Route::resource('', UserController::class);
+// route ini digunakan untuk handle halaman CRUD user di dashboard owner
+// jadi halaman CRUD dalam satu route
+// BERIKUT ADALAH FORMAT DARI URL ROUTE RESOURCE:
+// url /user -> menampilkan halaman dari semua data user
+// url /user/create -> menampilkan halaman form buat user
+// url /user/{idspesifik} -> menampilkan form halaman edit user jika user di klik
+Route::resource('/user', UserController::class);
 
 // room route
-// Route::resource('', RoomController::class);
+// kalo resource handle halaman CRUD dalam satu route
+Route::resource('/room', RoomController::class);
 
 // income route
 // Route::resource('', IncomeController::class);
@@ -60,7 +51,6 @@ Route::post('/register-room', [RegisterRoomController::class, 'create']);
 Route::get('/detail', [RegisterRoomController::class, 'index']);
 
 // login route
-Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 

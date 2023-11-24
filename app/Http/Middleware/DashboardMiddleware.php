@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class RoleAuthenticate
+class DashboardMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,8 @@ class RoleAuthenticate
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $role = $request->cookie('role');
-
-        if(!$role){
-            return redirect('/login');
-        }
-        if($role !== 'owner'){
-            return redirect('/login');
+        if(!auth()->check() || auth()->user()->role !== 'owner'){
+            abort(403);
         }
         return $next($request);
     }

@@ -15,9 +15,8 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="bg-white dark:bg-gray-900">
-   <!-- if role penyewa -->
-   <!-- @include('partials.sidebarPenyewa') -->
-   @include('partials.sidebarOwner')
+   @includeWhen(auth()->user()->role === 'penyewa', 'partials.sidebarPenyewa')
+   @includeWhen(auth()->user()->role === 'owner', 'partials.sidebarOwner')
       <div class="p-4 sm:ml-64 ">
          <div class="p-4 mt-14">
             @yield('content')

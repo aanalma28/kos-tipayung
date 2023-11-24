@@ -65,6 +65,11 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'user_lists' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\UserList::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

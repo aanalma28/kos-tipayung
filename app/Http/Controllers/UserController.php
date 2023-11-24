@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserModel;
+
+
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -22,37 +24,39 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('');
+        return view('createaccount');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {                
         $validateData = $request->validate([
+            'role' => 'required|max:10',
             'name' => 'required|max:20',
             'username' => 'required|max:12',
             'email' => 'required|unique:users|email:dns|max:50',
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
-            'role' => 'required'
         ]);
 
-        $validateData['password'] = bcrypt($validateData['password']);
+        $validateData['password'] = bcrypt($validateData['password']);        
 
-        UserModel::create([
+        // dd($validateData);
+
+        User::create([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
             'username' => $validateData['username'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
-            'phone' => $validateData['phone']
-        ]);
+            'phone' => $validateData['phone'],
+        ]);                
 
         $request->session()->flash('status', 'Registration Successfull !');
-        return redirect();
+        return redirect('/user/create');
+        
     }
 
     /**
