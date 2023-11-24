@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,11 +126,7 @@
             const lainLain = parseFloat(document.getElementById("lain_lain_pemasukan").value) || 0;
 
             const totalPemasukan = uangRental + lainLain;
-            document.getElementById("total_pemasukan").value = formatCurrency(totalPemasukan);
-        }
-
-        function formatCurrency(amount) {
-            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total_pemasukan").value = totalPemasukan;
         }
     </script>
     <!-- Section input data pengeluaran -->
@@ -225,7 +221,7 @@
         const biayaLainLain = parseFloat(document.getElementById("biaya_lain_lain").value) || 0;
 
         const totalPengeluaran = biayaUtilitas + biayaOperasional + biayaLainLain;
-        document.getElementById("total_pengeluaran").value = formatCurrency(totalPengeluaran);
+        document.getElementById("total_pengeluaran").value = totalPengeluaran;
     }
 </script>
     @include('partials.footer')
