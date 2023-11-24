@@ -26,6 +26,13 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/owner', function () {
+    return view('owner');
+});
+
+Route::get('/pengajuan', function () {
+    return view('pengajuan');
+});
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner

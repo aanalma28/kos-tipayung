@@ -16,7 +16,7 @@
 </head>
 <body class="bg-white dark:bg-gray-900">
     @include('partials.navbar')
-    @yield('content')
+        @yield('content')
     @include('partials.footer')
 </body>
 </html>
