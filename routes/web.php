@@ -38,8 +38,13 @@ Route::get('/owner/laporan-keuangan', function () {
 Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
+
 Route::get('/cr', function () {
     return view('owner.createroom');
+});
+
+Route::get('/ca', function () {
+    return view('owner.createaccount');
 });
 
 // user route

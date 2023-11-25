@@ -14,7 +14,7 @@
     </script>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class="bg-white dark:bg-gray-900">
+<body class=" bg-white dark:bg-gray-900">
    @includeWhen(auth()->user()->role === 'penyewa', 'partials.sidebarPenyewa')
    @includeWhen(auth()->user()->role === 'owner', 'partials.sidebarOwner')
       <div class="p-4 sm:ml-64 ">

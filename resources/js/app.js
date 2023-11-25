@@ -72,3 +72,19 @@ function formatRupiah(value) {
 
     return formatter.format(value);
 }
+
+// Function to navigate back
+function goBack() {
+    window.history.back();
+}
+
+// Add event listener when DOM content is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Find the "Batal" button
+    var cancelButton = document.getElementById('cancelButton');
+
+    // Add click event listener
+    cancelButton.addEventListener('click', function () {
+        goBack();
+    });
+});
