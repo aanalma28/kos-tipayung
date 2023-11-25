@@ -10,6 +10,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterRoomController;
+use App\Http\Controllers\TabunganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+// tabungan controller
+Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
