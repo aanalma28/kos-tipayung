@@ -181,6 +181,7 @@
     </div>
 </section>
 </form>
+@endsection
 <script>
 function toggleVisibility(elementToShow, elementToHide) {
     elementToHide.classList.add('hidden');

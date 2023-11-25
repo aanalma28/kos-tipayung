@@ -67,6 +67,7 @@
         </div>
     </section>
     @include('partials.footer')
+    @endsection
     <script>
     const harga = document.getElementById("harga");
     const hargaText = document.getElementById("harga-text");

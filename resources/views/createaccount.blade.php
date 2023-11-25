@@ -45,6 +45,7 @@
         </div>
     </div>
 </section>
+@endsection
 <script>
     function togglePasswordVisibility(inputId) {
         const passwordInput = document.getElementById(inputId);
