@@ -15,6 +15,8 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="bg-white dark:bg-gray-900">
+    <div>
         @yield('content')
+    </div>
 </body>
 </html>
