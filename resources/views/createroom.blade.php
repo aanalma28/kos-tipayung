@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Manajemen Kos | Form Tambah Kamar</title>
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-        
-    </script>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-</head>
-<body class="bg-white dark:bg-gray-900">
-    @include('partials.navbar')
+@extends('layouts.form')
+@section('content')
+@vite(['resources/css/app.css','resources/js/showhidepw.js'])
+@include('partials.navbar')
     <section class="px-4 md:px-20 py-4 flex items-center justify-center">
         <div class="py-8 px-4 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 rounded shadow-md w-fit">
             <div class="px-4 py-4 min-h-fit border-solid border-slate-700 rounded-lg">
@@ -97,7 +82,5 @@
     const satuan = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan"];
     const belasan = ["sepuluh", "sebelas", "dua belas", "tiga belas", "empat belas", "lima belas", "enam belas", "tujuh belas", "delapan belas", "sembilan belas"];
     const puluhan = ["", "", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"];
-
     </script>
-</body>
-</html>
+ @endsection

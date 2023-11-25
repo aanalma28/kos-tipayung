@@ -30,8 +30,15 @@ Route::get('/owner', function () {
     return view('owner');
 });
 
+Route::get('/owner/perhitungan', function () {
+    return view('addkeuangan');
+});
+
 Route::get('/pengajuan', function () {
     return view('pengajuan');
+});
+Route::get('/cr', function () {
+    return view('createroom');
 });
 
 // user route
