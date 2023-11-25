@@ -37,6 +37,9 @@ Route::get('/owner/perhitungan', function () {
 Route::get('/pengajuan', function () {
     return view('pengajuan');
 });
+Route::get('/cr', function () {
+    return view('createroom');
+});
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
