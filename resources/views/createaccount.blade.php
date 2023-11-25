@@ -45,7 +45,7 @@
         </div>
     </div>
 </section>
-@endsection
+@include('partials.footer')
 <script>
     function togglePasswordVisibility(inputId) {
         const passwordInput = document.getElementById(inputId);
@@ -72,4 +72,4 @@
         return true; 
     }
 </script>
-@include('partials.footer')
+@endsection

@@ -67,7 +67,6 @@
         </div>
     </section>
     @include('partials.footer')
-    @endsection
     <script>
     const harga = document.getElementById("harga");
     const hargaText = document.getElementById("harga-text");
@@ -92,3 +91,4 @@
     const puluhan = ["", "", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"];
 
     </script>
+@endsection

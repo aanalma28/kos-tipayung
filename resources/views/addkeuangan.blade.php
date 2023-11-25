@@ -181,7 +181,7 @@
     </div>
 </section>
 </form>
-@endsection
+@include('partials.footer')
 <script>
 function toggleVisibility(elementToShow, elementToHide) {
     elementToHide.classList.add('hidden');
@@ -295,3 +295,4 @@ const satuan = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", 
 const belasan = ["sepuluh", "sebelas", "dua belas", "tiga belas", "empat belas", "lima belas", "enam belas", "tujuh belas", "delapan belas", "sembilan belas"];
 const puluhan = ["", "", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"];
 </script>
+@endsection
