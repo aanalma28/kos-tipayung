@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('namatabungan');
             $table->integer('targettabungan');
             $table->integer('saldotabungan')->default(0);
+            $table->foreignId('user_id');
         });
     }
 

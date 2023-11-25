@@ -17,7 +17,8 @@ class TabunganController extends Controller
     public function create(Request $request){
         $validatedData = $request->validate([
             'namatabungan' => 'required',
-            'targettabungan' => 'required'
+            'targettabungan' => 'required',
+            'user_id'=> auth()->user()->id,
         ]);
 
         Tabungan::create($validatedData);

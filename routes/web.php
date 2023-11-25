@@ -25,25 +25,21 @@ use App\Http\Controllers\TabunganController;
 */
 
 Route::get('/', function () {
-    return view('landing');
-});
-
-Route::get('/owner', function () {
-    return view('owner');
+    return view('guest.landing');
 });
 
 Route::get('/owner/perhitungan', function () {
-    return view('addkeuangan');
+    return view('owner.addkeuangan');
 });
 Route::get('/owner/laporan-keuangan', function () {
-    return view('laporan');
+    return view('owner.laporan');
 });
 
 Route::get('/pengajuan', function () {
-    return view('pengajuan');
+    return view('guest.pengajuan');
 });
 Route::get('/cr', function () {
-    return view('createroom');
+    return view('owner.createroom');
 });
 
 // user route
