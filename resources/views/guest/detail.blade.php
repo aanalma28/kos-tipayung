@@ -1,9 +1,9 @@
 @extends('layouts.guest')
 @section('content')
-    <div class="grid gap-4">
+<div class="grid gap-4">        
         <section class="py-4 flex justify-center">
             <div>
-                <img class="h-auto md:max-h-[400px] max-w-full rounded-lg" src="../storage/{{ $data->image }}" alt="">
+                <img class="h-auto md:max-h-[400px] max-w-full rounded-lg" src="../../storage/{{ $data->image }}" alt="">
             </div>
         </section>
         <section class="w-full pt-4 pb-20 px-4 md:w-5/6 mx-auto">
@@ -41,6 +41,10 @@
                                         <div class="hidden">
                                             <label for="room_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room Number<span class="text-red-600">*</span></label>
                                             <input type="text" name="room_number" id="room_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value="{{$data->room_number}}" required>
+                                        </div>
+                                        <div class="hidden">
+                                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room Number<span class="text-red-600">*</span></label>
+                                            <input type="text" name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value="pending" required>
                                         </div>
                                         <div>
                                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama <span class="text-red-600">*</span></label>

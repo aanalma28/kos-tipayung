@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\Room;
 use App\Models\User;
+use App\Models\RegisterRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +18,10 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('owner.user');
+        return view('owner.user', [
+            'datas' => User::where('role', 'penyewa')->get(),
+            'register_room' => new RegisterRoom
+        ]);
     }
 
     /**
@@ -25,38 +30,52 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('owner.createuser');
+        return view('owner.createuser', [
+            'rooms' => Room::where('status', 'tersedia')->get(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validateData = $request->validate([
-            'role' => 'required|max:10',
+    {        
+        $validateData = $request->validate([            
             'name' => 'required|max:20',
             'email' => 'required|unique:users|email:dns|max:50',
             'password' => 'required|min:5|max:20',
-            'phone' => 'required|max:12',            
+            'phone' => 'required|max:12',
+            'room_number' => 'required'
         ]);                
 
         if(DB::table('users')->where('email', $validateData['email'])->exists()){
-            return redirect('/user')->with('error', 'Email sudah terdaftar !');
+            return redirect('/user/create')->with('error', 'Email sudah terdaftar !');
         }
 
         $validateData['password'] = bcrypt($validateData['password']);
 
         // dd($validateData);
+        $room = Room::where('room_number', $validateData['room_number'])->first();                
+
+        if(!$room){
+            return redirect('/user/create')->with('error', 'Nomor kamar tidak ditemukan');
+        }
 
         User::create([
-            'role' => $validateData['role'],
+            'role' => 'penyewa',
             'name' => $validateData['name'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
-        ]);                
+        ]);
+
+        $user = User::where('email', $validateData['email'])->first();        
         
+        $room->update([
+            'user_id' => $user->id,
+            'status' => 'disinggahi'
+        ]);
+
         return redirect('/user')->with('success', 'User has been added !');    
     }
 
@@ -77,7 +96,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        return view('edituser', [
+        return view('owner.editroom', [
             'data' => $user
         ]);
     }
@@ -117,6 +136,11 @@ class UserController extends Controller
     {
         //
         User::destroy($user->id);
+        $room = Room::where('user_id', $user->id)->first();
+        $room->update([
+            'user_id' => null,
+            'status' => 'tersedia'
+        ]);
         return redirect('/user')->with('success', 'User has been deleted !');
     }
 }

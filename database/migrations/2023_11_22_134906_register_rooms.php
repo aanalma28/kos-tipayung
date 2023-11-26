@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('register_rooms', function(Blueprint $table){
             $table->id();
             $table->integer('room_number');
+            $table->string('status');
             $table->string("name");
             $table->string('email')->unique();
             $table->integer('phone');

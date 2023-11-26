@@ -41,14 +41,6 @@ Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
 
-Route::get('/cr', function () {
-    return view('owner.createroom');
-});
-
-Route::get('/ca', function () {
-    return view('owner.createaccount');
-});
-
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
 // jadi halaman CRUD dalam satu route
@@ -65,7 +57,7 @@ Route::resource('/room', RoomController::class);
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
-Route::get('/room-{room:id}/detail', [RegisterRoomController::class, 'index']);
+Route::get('/register-room/{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -73,6 +65,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::post('/dashboard/{user:id}/accept', [DashboardController::class, 'accept']);
+Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'decline']);
+Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete']);
 
 // tabungan controller
 Route::get('/penyewa',[TabunganController::class, 'index']);

@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">Daftar Kamar</h1>
     @if(session()->has('error'))
         <div id="toast-danger" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
             <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">

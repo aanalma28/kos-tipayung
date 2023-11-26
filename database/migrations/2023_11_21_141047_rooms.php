@@ -14,8 +14,9 @@ return new class extends Migration
         //
         Schema::create('rooms', function (Blueprint $table){
             $table->id();
+            $table->foreignId('user_id')->nullable();
             $table->integer('room_number')->unique();
-            $table->integer('price');            
+            $table->integer('price');        
             $table->string('image');
             $table->string('status');
             $table->text('description');

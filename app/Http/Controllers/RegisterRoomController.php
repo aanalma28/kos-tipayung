@@ -22,6 +22,7 @@ class RegisterRoomController extends Controller
 
         $validateData = $request->validate([
             'room_number' => 'required',
+            'status' => 'required',
             'name' => 'required|max:20',
             'email' => 'required|email:dns|max:50',
             'phone' => 'required|max:12',
@@ -35,14 +36,15 @@ class RegisterRoomController extends Controller
 
         RegisterRoom::create([
             'room_number' => $validateData['room_number'],
+            'status' => $validateData['status'],
             'name' => $validateData['name'],
             'email' => $validateData['email'],
             'phone' => $validateData['phone'],
             'image' => $validateData['image']
         ]);
 
-        Mail::to($validateData['email'])->send(new RegisterMail($arrayData));
+        Mail::to($validateData['email'])->send(new RegisterMail($arrayData, 'email'));
 
-        return redirect('/success')->with('success', 'Data has been send !');
+        return redirect('/')->with('success', 'Data has been send !');
     }
 }
