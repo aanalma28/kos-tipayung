@@ -25,7 +25,9 @@ use App\Http\Controllers\TabunganController;
 */
 
 Route::get('/', function () {
-    return view('guest.landing');
+    return view('guest.landing',[
+        'datas' => Room::all(),
+    ]);
 });
 
 Route::get('/owner/perhitungan', function () {
@@ -63,7 +65,7 @@ Route::resource('/room', RoomController::class);
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
-Route::get('/detail', [RegisterRoomController::class, 'index']);
+Route::get('/room-{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route
 Route::post('/login', [LoginController::class, 'authenticate']);

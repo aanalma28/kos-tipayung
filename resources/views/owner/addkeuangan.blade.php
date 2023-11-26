@@ -14,7 +14,7 @@
                         <!-- Input Bulan -->
                         <div class="mb-4">
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan">
-                                Bulan *
+                                Bulan <span class="text-red-600">*</span>
                             </label>
                             <input required
                                 name="bulan"
@@ -27,7 +27,7 @@
                         <!-- Input Tahun -->
                         <div class="mb-4">
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun">
-                                Tahun *
+                                Tahun <span class="text-red-600">*</span>
                             </label>
                             <input required name="tahun"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -39,7 +39,7 @@
                         <!-- Input Uang Rental -->
                         <div class="mb-4">
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="uang_rental">
-                                Uang Rental *
+                                Uang Rental <span class="text-red-600">*</span>
                             </label>
                             <input required
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -99,7 +99,7 @@
                     <!-- Input Biaya Utilitas -->
                     <div class="mb-4">
                         <label class="block text-gray-700 dark:text-gray-200 mb-2" for="biaya_utilitas">
-                            Biaya Utilitas *
+                            Biaya Utilitas <span class="text-red-600">*</span>
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -113,7 +113,7 @@
                     <!-- Input Biaya Operasional -->
                     <div class="mb-4">
                         <label class="block text-gray-700 dark:text-gray-200 mb-2" for="biaya_operasional">
-                            Biaya Operasional *
+                            Biaya Operasional <span class="text-red-600">*</span>
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

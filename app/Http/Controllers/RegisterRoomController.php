@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Mail\RegisterMail;
 use App\Models\RegisterRoom;
 use Illuminate\Http\Request;
@@ -10,8 +11,10 @@ use Illuminate\Support\Facades\Mail;
 class RegisterRoomController extends Controller
 {
     //
-    public function index(){
-        return view('guest.detail');
+    public function index(Room $room){
+        return view('guest.detail',[
+            'data'=>$room,
+        ]);
     }
 
     public function create(Request $request){

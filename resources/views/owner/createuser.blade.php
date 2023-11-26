@@ -9,33 +9,21 @@
                 <form class="mt-8 max-w-sm mx-auto" method="post" action="/user" onsubmit="return validateForm()">
                     @csrf
                     <label class="block">
-                        <span class="text-gray-700 dark:text-gray-200">Name*</span>
+                        <span class="text-gray-700 dark:text-gray-200">Name <span class="text-red-600">*</span></span>
                         <input type="text" name="name" id="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: John Doe" required>
                     </label>
                     <label class="block mt-3">
-                        <span class="text-gray-700 dark:text-gray-200">Username*</span>
-                        <input type="text" name="username" id="username" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: johndoe123" required>
-                    </label>
-                    <label class="block mt-3">
-                        <span class="text-gray-700 dark:text-gray-200">Email*</span>
+                        <span class="text-gray-700 dark:text-gray-200">Email <span class="text-red-600">*</span></span>
                         <input type="email" name="email" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh@gmail.com" required>
                     </label>
                     <label class="block mt-3">
-                        <span class="text-gray-700 dark:text-gray-200">Phone*</span>
+                        <span class="text-gray-700 dark:text-gray-200">Phone <span class="text-red-600">*</span></span>
                         <input type="number" name="phone" id="phone" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: 081234567890" required>
                     </label>
                     <label class="block mt-3">
-                        <span class="text-gray-700 dark:text-gray-200">Password*</span>
+                        <span class="text-gray-700 dark:text-gray-200">Password <span class="text-red-600">*</span></span>
                         <input type="password" name="password" id="confirmPassword"  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan Password..." required>
                         <button type="button" onclick="togglePasswordVisibility('confirmPassword')" class="mt-2 text-gray-400 ">Lihat Password</button>
-                    </label>
-                    <label class="block mt-3">
-                        <span class="text-gray-700 dark:text-gray-200">Role*</span>
-                        <select required name="role" id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled selected >Pilih Role</option>
-                        <option value="tersedia">owner</option>
-                        <option value="disinggahi">penyewa</option>
-                    </select>
                     </label>
                     <div class="grid grid-cols-2 gap-8">
                     <button type="submit"

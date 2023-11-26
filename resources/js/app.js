@@ -44,19 +44,19 @@ themeToggleBtn.addEventListener("click", function () {
     }
 });
 
-// currency 
+// currency
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     formatCurrency();
 });
 
 function formatCurrency() {
     // Mendapatkan semua elemen dengan class "currency"
-    var currencyElements = document.querySelectorAll('.currency');
+    var currencyElements = document.querySelectorAll(".currency");
 
     // Mengubah setiap elemen dengan class "currency"
     currencyElements.forEach(function (element) {
-        var value = parseFloat(element.textContent.replace(/[^0-9.-]+/g, '')); // Mengambil nilai numerik
+        var value = parseFloat(element.textContent.replace(/[^0-9.-]+/g, "")); // Mengambil nilai numerik
         var formattedValue = formatRupiah(value); // Mengubah nilai menjadi format Rupiah
 
         // Menetapkan teks yang sudah diformat ke dalam elemen
@@ -65,9 +65,9 @@ function formatCurrency() {
 }
 
 function formatRupiah(value) {
-    var formatter = new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR'
+    var formatter = new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
     });
 
     return formatter.format(value);
@@ -79,12 +79,12 @@ function goBack() {
 }
 
 // Add event listener when DOM content is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Find the "Batal" button
-    var cancelButton = document.getElementById('cancelButton');
+    var cancelButton = document.getElementById("cancelButton");
 
     // Add click event listener
-    cancelButton.addEventListener('click', function () {
+    cancelButton.addEventListener("click", function () {
         goBack();
     });
 });

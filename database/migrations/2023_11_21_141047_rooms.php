@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('price');            
             $table->string('image');
             $table->string('status');
-            $table->string('description');
+            $table->text('description');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
