@@ -8,15 +8,20 @@
                 <h1 class="w-full md:w-[450px] text-4xl font-semibold text-gray-700 dark:text-white">Form Edit Kamar</h1>
                 <p class="text-lg w-full text-gray-600 dark:text-gray-300">Isi Formulir berikut untuk meng-edit kamar...</p>
                 <div class="py-8">
+                    <!-- form edit kamar -->
                 <form action="" title="Form Untuk Edit Kamar" class="mt-8 max-w-sm mx-auto">
+                @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="nomor_kamar">
                         Nomor Kamar *
                     </label>
-                    <input required name="nomor_kamar"
+                    <input required
                         value="//value kamar sesuai id//"
+                        name="nomor_kamar"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="nomor_kamar" type="text" placeholder="01, 02 ...">
+                        id="nomor_kamar" 
+                        type="text" 
+                        placeholder="01, 02 ...">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="status">
@@ -33,9 +38,13 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="deskripsi">
                         Deskripsi *
                     </label>
-                    <textarea required name="deskripsi"
+                    <textarea required 
+                        name="deskripsi"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="deskripsi" placeholder="Deskripsi">//value kamar sesuai id//</textarea>
+                        id="deskripsi" 
+                        placeholder="Deskripsi">
+                        //value kamar sesuai id//
+                    </textarea>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="harga">
@@ -44,16 +53,23 @@
                     <input required
                         value="//value kamar sesuai id//" 
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="harga" name="harga" type="number" placeholder="1000000">
+                        id="harga" 
+                        name="harga" 
+                        type="number" 
+                        placeholder="1000000">
                     <p href="#" title="Penyebutan Harga" id="harga-text" class="text-gray-600 text-sm italic"></p>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="upload_foto">
                         Upload Foto Kamar
                     </label>
-                    <input required name="foto_kamar"
+                    <input 
+                        name="foto_kamar"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        name="foto-room" id="foto-room" type="file">
+                        name="foto-room" 
+                        id="foto-room" 
+                        type="file"
+                        accept=".jpg, .jpeg, .png" >
                     <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
                 </div>
                 <div class="flex items-center justify-between">
@@ -67,6 +83,7 @@
         </div>
     </section>
     @include('partials.footer')
+    <!-- script penyebutan -->
     <script>
     const harga = document.getElementById("harga");
     const hargaText = document.getElementById("harga-text");

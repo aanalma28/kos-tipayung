@@ -34,6 +34,9 @@ Route::get('/owner', function () {
 Route::get('/owner/perhitungan', function () {
     return view('addkeuangan');
 });
+Route::get('/owner/laporan-keuangan', function () {
+    return view('laporan');
+});
 
 Route::get('/pengajuan', function () {
     return view('pengajuan');
