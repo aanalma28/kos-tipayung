@@ -42,8 +42,8 @@ Route::get('/owner/laporan-keuangan', function () {
 Route::get('/pengajuan', function () {
     return view('pengajuan');
 });
-Route::get('/cr', function () {
-    return view('createroom');
+Route::get('/ca', function () {
+    return view('createaccount');
 });
 
 // user route
