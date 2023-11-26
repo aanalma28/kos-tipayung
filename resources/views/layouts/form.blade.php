@@ -18,7 +18,7 @@
     @if(auth()->user()->role === 'owner')
          <div class="mt-14">
              <div id="top"></div>
-             @yield('content')
+             @yield('penyewa')
          </div>
     @else
     <div>

@@ -1,6 +1,6 @@
-@extends('layouts.form')
+@extends('layouts.dashboard')
 @section('content')
-@include('partials.sidebarOwner')
+<div class="scroll-smooth">
 <form action="">
 @csrf
     <!-- Section input data pemasukan -->
@@ -206,7 +206,7 @@
     </div>
 </section>
 </form>
-@include('partials.footer')
+</div>
 <script>
 // toggle switch to
 function toggleVisibility(elementToShow, elementToHide) {
