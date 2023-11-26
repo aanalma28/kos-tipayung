@@ -11,7 +11,7 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="nomor_kamar">
-                        Nomor Kamar *
+                        Nomor Kamar <span class="text-red-600">*</span>
                     </label>
                     <input required name="nomor_kamar"
                         value="{{ $data->room_number }}"
@@ -22,18 +22,22 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="status">
-                        Status *
+                        Status <span class="text-red-600">*</span>
                     </label>
                     <select required id="status" name="status"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled selected>{{ $data->status }}</option>
-                        <option value="tersedia" >Tersedia</option>
-                        <option value="disinggahi">Disinggahi</option>
+                        @foreach ($options as $option)
+                            @if ($option == $data->status )
+                                <option value="{{strtolower($option)}}" selected>{{$option}}</option>
+                                @else
+                                <option value="{{strtolower($option)}}">{{$option}}</option>
+                            @endif    
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="deskripsi">
-                        Deskripsi *
+                        Deskripsi <span class="text-red-600">*</span>
                     </label>
                     <textarea required 
                         name="deskripsi"
@@ -43,7 +47,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="harga">
-                        Harga *
+                        Harga <span class="text-red-600">*</span>
                     </label>
                     <input required
                         value="{{ $data->price }}" 
@@ -56,7 +60,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="foto_kamar">
-                        Upload Foto Kamar
+                        Upload Foto Kamar <span class="text-red-600">*</span>
                     </label>
                     <input 
                         name="foto_kamar"
@@ -68,8 +72,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-8">
                     <button type="submit"
-                        class="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Edit
-                        Kamar</button>
+                        class="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Simpan</button>
                     <a id="cancelButton"
                         class="cursor-pointer w-full px-4 py-2 mt-4 text-green-700 border border-green-500 rounded hover:border-green-700 hover:bg-green-900/20 text-center">Batal</a>
                 </div>

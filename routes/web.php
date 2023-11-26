@@ -25,25 +25,28 @@ use App\Http\Controllers\TabunganController;
 */
 
 Route::get('/', function () {
-    return view('landing');
-});
-
-Route::get('/owner', function () {
-    return view('owner');
+    return view('guest.landing',[
+        'datas' => Room::all(),
+    ]);
 });
 
 Route::get('/owner/perhitungan', function () {
-    return view('addkeuangan');
+    return view('owner.addkeuangan');
 });
 Route::get('/owner/laporan-keuangan', function () {
-    return view('laporan');
+    return view('owner.laporan');
 });
 
 Route::get('/pengajuan', function () {
-    return view('pengajuan');
+    return view('guest.pengajuan');
 });
+
+Route::get('/cr', function () {
+    return view('owner.createroom');
+});
+
 Route::get('/ca', function () {
-    return view('createaccount');
+    return view('owner.createaccount');
 });
 
 // user route
@@ -62,7 +65,7 @@ Route::resource('/room', RoomController::class);
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
-Route::get('/detail', [RegisterRoomController::class, 'index']);
+Route::get('/room-{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route
 Route::post('/login', [LoginController::class, 'authenticate']);

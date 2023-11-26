@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('user');
+        return view('owner.user');
     }
 
     /**
@@ -25,42 +25,39 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('createuser');
+        return view('owner.createuser');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {
         $validateData = $request->validate([
-            'name' => 'required|max:50',
-            'username' => 'required|max:50',
-            'email' => 'required|max:100|unique:users|email:dns',
-            'phone' => 'required|max:12',
-            'password' => 'required|max:50',
-            'role' => 'required|max:20',
+            'role' => 'required|max:10',
+            'name' => 'required|max:20',
+            'email' => 'required|unique:users|email:dns|max:50',
+            'password' => 'required|min:5|max:20',
+            'phone' => 'required|max:12',            
         ]);                
 
         if(DB::table('users')->where('email', $validateData['email'])->exists()){
             return redirect('/user')->with('error', 'Email sudah terdaftar !');
         }
 
-        $validateData['password'] = bcrypt($validateData['password']);        
+        $validateData['password'] = bcrypt($validateData['password']);
 
         // dd($validateData);
 
         User::create([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
-            'username' => $validateData['username'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
         ]);                
         
-        return redirect('/user')->with('success', 'User has been added !');
-        
+        return redirect('/user')->with('success', 'User has been added !');    
     }
 
     /**
@@ -92,9 +89,9 @@ class UserController extends Controller
     {
         //
         $validateData = $request->validate([
-            'name' => 'required|max:50',
-            'username' => 'required|max:50',
-            'email' => 'required|max:100|unique:users|email:dns',
+            'name' => 'required|max:20',
+            'email' => 'required|unique:users|email:dns|max:50',
+            'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
             'password' => 'required|max:50',
             'role' => 'required|max:20',
@@ -105,7 +102,6 @@ class UserController extends Controller
         $user->update([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
-            'username' => $validateData['username'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone']

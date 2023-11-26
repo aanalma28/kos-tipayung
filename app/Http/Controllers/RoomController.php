@@ -15,7 +15,7 @@ class RoomController extends Controller
     public function index()
     {
         //
-        return view('kamar', [
+        return view('owner.kamar', [
             'datas' => Room::all(),
         ]);
     }
@@ -26,7 +26,7 @@ class RoomController extends Controller
     public function create()
     {
         //
-        return view('createroom');
+        return view('owner.createroom');
     }
 
     /**
@@ -39,7 +39,7 @@ class RoomController extends Controller
         $validateData = $request->validate([
             'nomor_kamar' => 'required|max:20',
             'status' => 'required',
-            'deskripsi' => 'required|max:255',
+            'deskripsi' => 'required',
             'harga' => 'required|max:20',
             'foto_kamar' => 'required|image|file|max:10024',
         ]);        
@@ -80,8 +80,9 @@ class RoomController extends Controller
     public function edit(Room $room)
     {
         //
-        return view('editroom', [
+        return view('owner.editroom', [
             'data' => $room,
+            'options' => ['Tersedia', 'Disinggahi'],
         ]);
     }
 
