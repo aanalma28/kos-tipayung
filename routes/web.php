@@ -40,7 +40,6 @@ Route::get('/owner/laporan-keuangan', function () {
 Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
-
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
 // jadi halaman CRUD dalam satu route
@@ -73,3 +72,5 @@ Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'
 Route::get('/penyewa',[TabunganController::class, 'index']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
 Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+
+Route::get('/penyewa/akun',[AkunpyController::class, 'index']);
