@@ -16,11 +16,11 @@
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan">
                                 Bulan *
                             </label>
-                            <input required 
+                            <input required
                                 name="bulan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="bulan" 
-                                type="text" 
+                                id="bulan"
+                                type="text"
                                 placeholder="Bulan">
                         </div>
 
@@ -31,8 +31,8 @@
                             </label>
                             <input required name="tahun"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="tahun" 
-                                type="text" 
+                                id="tahun"
+                                type="text"
                                 placeholder="Tahun">
                         </div>
 
@@ -43,9 +43,9 @@
                             </label>
                             <input required
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="uang_rental" 
-                                name="uang_rental" 
-                                type="number" 
+                                id="uang_rental"
+                                name="uang_rental"
+                                type="number"
                                 placeholder="Uang Rental">
                             <p href="#" title="Penyebutan Harga" id="ur-text" class="text-gray-600 text-sm italic"></p>
                         </div>
@@ -55,11 +55,11 @@
                             <label class="block text-gray-700 dark:text-gray-200 mb-2" for="lain_lain_pemasukan">
                                 Lain-Lain
                             </label>
-                            <input 
+                            <input
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="lain_lain_pemasukan" 
-                                name="lain_lain_pemasukan" 
-                                type="number" 
+                                id="lain_lain_pemasukan"
+                                name="lain_lain_pemasukan"
+                                type="number"
                                 placeholder="Lain-Lain">
                             <p href="#" title="Penyebutan Harga" id="bllpm-text" class="text-gray-600 text-sm italic"></p>
                         </div>
@@ -70,11 +70,11 @@
                                 Total Pemasukan
                             </label>
                             <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
-                            <input id="total_pemasukan" 
-                            required 
-                            name="total_pemasukan" 
-                            type="number" 
-                            class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                            <input id="total_pemasukan"
+                            required
+                            name="total_pemasukan"
+                            type="number"
+                            class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
                             readonly>
                         </div>
                         <div class="grid grid-cols-2 gap-8">
@@ -103,9 +103,9 @@
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_utilitas" 
-                            name="biaya_utilitas" 
-                            type="number" 
+                            id="biaya_utilitas"
+                            name="biaya_utilitas"
+                            type="number"
                             placeholder="Biaya Utilitas">
                         <p href="#" title="Penyebutan Harga" id="bu-text" class="text-gray-600 text-sm italic"></p>
                     </div>
@@ -117,9 +117,9 @@
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_operasional" 
-                            name="biaya_operasional" 
-                            type="number" 
+                            id="biaya_operasional"
+                            name="biaya_operasional"
+                            type="number"
                             placeholder="Biaya Operasional">
                         <p href="#" title="Penyebutan Harga" id="bo-text" class="text-gray-600 text-sm italic"></p>
                     </div>
@@ -131,9 +131,9 @@
                         </label>
                         <input
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_lain_lain" 
-                            name="biaya_lain_lain" 
-                            type="number" 
+                            id="biaya_lain_lain"
+                            name="biaya_lain_lain"
+                            type="number"
                             placeholder="Lain-Lain">
                         <p href="#" title="Penyebutan Harga" id="bll-text" class="text-gray-600 text-sm italic"></p>
                     </div>
@@ -144,17 +144,17 @@
                             Total Pengeluaran
                         </label>
                         <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
-                        <input id="total_pengeluaran" 
-                        required 
-                        name="total_pengeluaran" 
-                        type="number" 
-                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                        <input id="total_pengeluaran"
+                        required
+                        name="total_pengeluaran"
+                        type="number"
+                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
                         readonly>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
-                        <a id="btn-pm" onclick="toPemasukan()" href="#top" 
+                        <a id="btn-pm" onclick="toPemasukan()" href="#top"
                                 class="cursor-pointer w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700 text-center">Ke Pemasukan</a>
-                        <a href="#hitung" 
+                        <a href="#hitung"
                                 class="cursor-pointer w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700 text-center">Hitung</a>
                     </div>
                 </div>
@@ -177,10 +177,10 @@
                         </label>
                         <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
                         <input required
-                         id="pendapatan_bersih"  
-                         name="pendapatan_bersih" 
-                         type="number" 
-                         class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                         id="pendapatan_bersih"
+                         name="pendapatan_bersih"
+                         type="number"
+                         class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
                          readonly>
                     </div>
                     <!-- Hasil Pendapatan Kotor -->
@@ -189,15 +189,15 @@
                             Pendapatan Kotor
                         </label>
                         <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
-                        <input required 
-                        id="pendapatan_kotor" 
-                        name="pendapatan_kotor" 
-                        type="number" 
-                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                        <input required
+                        id="pendapatan_kotor"
+                        name="pendapatan_kotor"
+                        type="number"
+                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
                         readonly>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
-                        <button type="submit" 
+                        <button type="submit"
                             class="cursor-pointer w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Save Data</button>
                     </div>
                 </div>
@@ -236,7 +236,7 @@ document.getElementById("lain_lain_pemasukan").addEventListener("input", calcula
 function calculateTotalPemasukan() {
     const uangRental = parseFloat(document.getElementById("uang_rental").value) || 0;
     const lainLain = parseFloat(document.getElementById("lain_lain_pemasukan").value) || 0;
-    
+
     const totalPemasukan = uangRental + lainLain;
     document.getElementById("total_pemasukan").value = totalPemasukan;
 

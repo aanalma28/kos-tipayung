@@ -15,7 +15,7 @@ class RoomController extends Controller
     public function index()
     {
         //
-        return view('kamar', [
+        return view('owner.kamar', [
             'datas' => Room::all(),
         ]);
     }
@@ -26,7 +26,7 @@ class RoomController extends Controller
     public function create()
     {
         //
-        return view('createroom');
+        return view('owner.createroom');
     }
 
     /**

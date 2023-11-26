@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('');
+        return view('owner.listpenyewa');
     }
 
     /**
@@ -25,14 +25,14 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('createaccount');
+        return view('owner.createaccount');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {
         $validateData = $request->validate([
             'role' => 'required|max:10',
             'name' => 'required|max:20',
@@ -48,7 +48,7 @@ class UserController extends Controller
         //     return redirect('/error')->with('error', 'Email sudah terdaftar !');
         // }
 
-        $validateData['password'] = bcrypt($validateData['password']);        
+        $validateData['password'] = bcrypt($validateData['password']);
 
         // dd($validateData);
 
@@ -59,11 +59,11 @@ class UserController extends Controller
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
-        ]);                
+        ]);
 
         $request->session()->flash('success', 'Registration Successfull !');
         return redirect('/success');
-        
+
     }
 
     /**
@@ -113,7 +113,7 @@ class UserController extends Controller
             'password' => $validateData['password'],
             'phone' => $validateData['phone']
         ]);
-        
+
         return redirect('' . $user->id)->with('success', 'User Updated !');
     }
 
