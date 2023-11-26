@@ -8,6 +8,6 @@
     <title>Send Email</title>
 </head>
 <body>
-    <h3>Send Email</h3>
+    <h3>Halo, {{ $ArrayData['name'] }}</h3>
 </body>
 </html>

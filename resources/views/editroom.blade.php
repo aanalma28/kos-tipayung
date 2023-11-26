@@ -23,13 +23,15 @@
                 <h1 class="w-full md:w-[450px] text-4xl font-semibold text-gray-700 dark:text-white">Form Edit Kamar</h1>
                 <p class="text-lg w-full text-gray-600 dark:text-gray-300">Isi Formulir berikut untuk meng-edit kamar...</p>
                 <div class="py-8">
-                <form action="" title="Form Untuk Edit Kamar" class="mt-8 max-w-sm mx-auto">
+                <form action="/room/{{ $data->id }}" enctype="multipart/form-data" method="post" title="Form Untuk Edit Kamar" class="mt-8 max-w-sm mx-auto">
+                @method('put')
+                @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="nomor_kamar">
                         Nomor Kamar *
                     </label>
                     <input required name="nomor_kamar"
-                        value="//value kamar sesuai id//"
+                        value="{{ $data->room_number }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="nomor_kamar" type="text" placeholder="01, 02 ...">
                 </div>
@@ -39,7 +41,7 @@
                     </label>
                     <select required id="status" name="status"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled selected>Pilih Status</option>
+                        <option value="" disabled selected>{{ $data->status }}</option>
                         <option value="tersedia" >Tersedia</option>
                         <option value="disinggahi">Disinggahi</option>
                     </select>
@@ -50,25 +52,25 @@
                     </label>
                     <textarea required name="deskripsi"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="deskripsi" placeholder="Deskripsi">//value kamar sesuai id//</textarea>
+                        id="deskripsi" placeholder="Deskripsi">{{ $data->description }}</textarea>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="harga">
                         Harga *
                     </label>
                     <input required
-                        value="//value kamar sesuai id//" 
+                        value="{{ $data->price }}" 
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="harga" name="harga" type="number" placeholder="1000000">
                     <p href="#" title="Penyebutan Harga" id="harga-text" class="text-gray-600 text-sm italic"></p>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 dark:text-gray-200 mb-2" for="upload_foto">
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2" for="foto_kamar">
                         Upload Foto Kamar
                     </label>
-                    <input required name="foto_kamar"
+                    <input name="foto_kamar"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        name="foto-room" id="foto-room" type="file">
+                        id="foto_kamar" type="file">
                     <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
                 </div>
                 <div class="flex items-center justify-between">

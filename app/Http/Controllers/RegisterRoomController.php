@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\RegisterMail;
 use App\Models\RegisterRoom;
-use App\Mail\RegisterRoomMail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterRoomController extends Controller
@@ -14,22 +14,32 @@ class RegisterRoomController extends Controller
         return view('/detail');
     }
 
-    public function create(Request $request){
+    public function create(Request $request){        
         $arrayData = $request->all();
-
+        
         $validateData = $request->validate([
+            'room_number' => 'required',
             'name' => 'required|max:20',            
             'email' => 'required|email:dns|max:50',
             'phone' => 'required|max:12',
             'image' => 'required|file|image|max:10024'
         ]);
+        
+
+        if($request->file('image')){
+            $validateData['image'] = $request->file('image')->store('ktp');
+        }
 
         RegisterRoom::create([
-            $validateData
+            'room_number' => $validateData['room_number'],
+            'name' => $validateData['name'],
+            'email' => $validateData['email'],
+            'phone' => $validateData['phone'],
+            'image' => $validateData['image']
         ]);
 
-        Mail::to($validateData['email'])->send(new RegisterRoomMail($arrayData));
+        Mail::to($validateData['email'])->send(new RegisterMail($arrayData));
 
-        return redirect('')->with('status', 'Data has been send !');
+        return redirect('/success')->with('success', 'Data has been send !');
     }
 }

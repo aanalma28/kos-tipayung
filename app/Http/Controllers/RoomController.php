@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -14,7 +15,9 @@ class RoomController extends Controller
     public function index()
     {
         //
-        return view('');
+        return view('kamar', [
+            'datas' => Room::all(),
+        ]);
     }
 
     /**
@@ -32,29 +35,32 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->nomor_kamar);
         $validateData = $request->validate([
-            'room_number' => 'required|max:5',
-            'price' => 'required|max:20',
-            'room_type' => 'required',
-            'image' => 'required||file|image|max:10024',
+            'nomor_kamar' => 'required|max:20',
             'status' => 'required',
-            'description' => 'required|max:255'
-        ]);
-
-        if($request->file('image')){
-            $validateData['image'] = $request->file('image')->store('file-storage');
+            'deskripsi' => 'required|max:255',
+            'harga' => 'required|max:20',
+            'foto_kamar' => 'required|image|file|max:10024',
+        ]);        
+        
+        if(DB::table('rooms')->where('room_number', $validateData['nomor_kamar'])->exists()){
+            return redirect('/room')->with('error', 'Nomor Kamar Sudah ada !');            
         }
 
+        if($request->file('foto_kamar')){
+            $validateData['foto_kamar'] = $request->file('foto_kamar')->store('rooms');
+        }        
+
         Room::create([
-            'room_number' => $validateData['room_number'],
-            'price' => $validateData['price'],
-            'room_type' => $validateData['room_type'],
-            'image' => $validateData['image'],
+            'room_number' => $validateData['nomor_kamar'],
+            'price' => $validateData['harga'],   
+            'image' => $validateData['foto_kamar'],
             'status' => $validateData['status'],
-            'description' => $validateData['description']
+            'description' => $validateData['deskripsi']
         ]);
 
-        return redirect('')->with('status', 'Room Added !');
+        return redirect('/room')->with('success', 'Room Added !');
     }
 
     /**
@@ -74,7 +80,7 @@ class RoomController extends Controller
     public function edit(Room $room)
     {
         //
-        return view('', [
+        return view('editroom', [
             'data' => $room,
         ]);
     }
@@ -84,33 +90,41 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        //        
         $validateData = $request->validate([
-            'room_number' => 'required|max:5',
-            'price' => 'required|max:20',
-            'room_type' => 'required',
-            'image' => 'required||file|image|max:10024',
+            'nomor_kamar' => 'required|max:5',
+            'deskripsi' => 'required|max:255',
+            'harga' => 'required|max:20',        
+            'foto_kamar' => 'file|image|max:10024',
             'status' => 'required',
-            'description' => 'required|max:255'
-        ]);
+        ]);  
 
-        if($request->file('image')){
-            if ($room->image && file_exists(storage_path('app/public/' . $room->image))){
-                Storage::delete(['public/'.$room->image]);
-                $validateData['image'] = $request->file('image')->store('file-storage');
-            }
+        if($request->file('foto_kamar')){
+            if ($room->image && file_exists(storage_path('app/public/' . $room->image))){                
+                Storage::disk('local')->delete(['public/'.$room->image]);
+                $validateData['foto_kamar'] = $request->file('foto_kamar')->store('rooms');                
+            }            
         }
 
-        $room->update([
-            'room_number' => $validateData['room_number'],
-            'price' => $validateData['price'],
-            'room_type' => $validateData['room_type'],
-            'image' => $validateData['image'],
-            'status' => $validateData['status'],
-            'description' => $validateData['description']
-        ]);
+        if($request->file('foto_kamar')){
+            $room->update([
+                'room_number' => $validateData['nomor_kamar'],
+                'price' => $validateData['harga'],
+                'image' => $validateData['foto_kamar'],
+                'status' => $validateData['status'],
+                'description' => $validateData['deskripsi']
+            ]);
+        }else{
+            $room->update([
+                'room_number' => $validateData['nomor_kamar'],
+                'price' => $validateData['harga'],            
+                'status' => $validateData['status'],
+                'description' => $validateData['deskripsi']
+            ]);
+        }
 
-        return redirect('' . $room->id)->with('status', 'Room Updated !');
+
+        return redirect('/room')->with('success', 'Room Updated !');
     }
 
     /**
@@ -120,5 +134,7 @@ class RoomController extends Controller
     {
         //
         Room::destroy($room->id);
+        Storage::disk('local')->delete(['public/'.$room->image]);
+        return redirect('/room')->with('success', 'Room has been deleted !');
     }
 }

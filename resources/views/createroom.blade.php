@@ -23,7 +23,8 @@
             <h1 class="w-full md:w-[450px] text-4xl font-semibold text-gray-700 dark:text-white">Form Tambah Kamar</h1>
                 <p class="text-lg w-full text-gray-600 dark:text-gray-300">Isi Formulir berikut untuk menambah kamar...</p>
                 <div class="py-8">
-                <form action="" title="Form Untuk Tambah Kamar" class="mt-8 max-w-sm mx-auto">
+                <form action="/room" method="post" enctype="multipart/form-data" class="mt-8 max-w-sm mx-auto">
+                    @csrf
                     <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="nomor_kamar">
                         Nomor Kamar *
@@ -59,13 +60,11 @@
                         id="harga" name="harga" type="number" placeholder="1000000">
                     <p title="Penyebutan Harga" id="harga-text" class="text-gray-600 text-sm italic"></p>
                     </div>
-                    <div class="mb-4">
-                    <label class="block text-gray-700 dark:text-gray-200 mb-2" for="upload_foto">
-                        Upload Foto Kamar
-                    </label>
-                    <input name="foto_kamar" required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="foto-room" id="foto-room" type="file">
-                    <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
-                    </div>
+                    <div class="mb-4">                                            
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Foto Kamar</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="foto_kamar" name="foto_kamar" type="file">
+                        <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
+                    </div>                    
                     <div class="flex items-center justify-between">
                     <button type="submit" class="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Tambah Kamar</button>
                     </div>

@@ -8,3 +8,5 @@ MAIL_PASSWORD=smicvgwzcevohqap
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="kostipayung@gmail.com"
 MAIL_FROM_NAME="${APP_NAME}"
+
+FILESYSTEM_DISK='public'

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -31,7 +32,7 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {                
+    {        
         $validateData = $request->validate([
             'role' => 'required|max:10',
             'name' => 'required|max:20',
@@ -40,6 +41,12 @@ class UserController extends Controller
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
         ]);
+
+        // $search = DB::table('users')->where('email', "=", $validateData['email']);
+
+        // if($search){
+        //     return redirect('/error')->with('error', 'Email sudah terdaftar !');
+        // }
 
         $validateData['password'] = bcrypt($validateData['password']);        
 
@@ -54,8 +61,8 @@ class UserController extends Controller
             'phone' => $validateData['phone'],
         ]);                
 
-        $request->session()->flash('status', 'Registration Successfull !');
-        return redirect('/user/create');
+        $request->session()->flash('success', 'Registration Successfull !');
+        return redirect('/success');
         
     }
 
@@ -76,7 +83,9 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        return view('');
+        return view('', [
+            'data' => $user
+        ]);
     }
 
     /**
@@ -105,7 +114,7 @@ class UserController extends Controller
             'phone' => $validateData['phone']
         ]);
         
-        return redirect('' . $user->id)->with('status', 'User Updated !');
+        return redirect('' . $user->id)->with('success', 'User Updated !');
     }
 
     /**

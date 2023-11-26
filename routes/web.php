@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
@@ -56,3 +57,13 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/test', function(){
+    Room::create([
+        'room_number' => '11',
+        'price' => '100000',            
+        'image' => 'image',
+        'status' => 'tersedia',
+        'description' => 'kamar 4x4'
+    ]);
+});

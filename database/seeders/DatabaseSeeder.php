@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'tipayungkos',
             'email' => 'tipayungkos@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
-            'phone' => '00000'
+            'phone' => 123456789012
         ]);
     }
 }
