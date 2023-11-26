@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('owner.listpenyewa');
+        return view('owner.user');
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('owner.createaccount');
+        return view('owner.createuser');
     }
 
     /**
@@ -36,7 +36,6 @@ class UserController extends Controller
         $validateData = $request->validate([
             'role' => 'required|max:10',
             'name' => 'required|max:20',
-            'username' => 'required|max:12',
             'email' => 'required|unique:users|email:dns|max:50',
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
@@ -55,7 +54,6 @@ class UserController extends Controller
         User::create([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
-            'username' => $validateData['username'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
@@ -96,7 +94,6 @@ class UserController extends Controller
         //
         $validateData = $request->validate([
             'name' => 'required|max:20',
-            'username' => 'required|max:12',
             'email' => 'required|unique:users|email:dns|max:50',
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
@@ -108,7 +105,6 @@ class UserController extends Controller
         $user->update([
             'role' => $validateData['role'],
             'name' => $validateData['name'],
-            'username' => $validateData['username'],
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone']
