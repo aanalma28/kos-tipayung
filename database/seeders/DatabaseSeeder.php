@@ -30,5 +30,14 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
             'phone' => 123456789012
         ]);
+
+        User::create([
+            'role' => 'penyewa',
+            'name' => 'siimut',
+            'username' => 'siimut',
+            'email' => 'siimut@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',//password
+            'phone' => '00000'
+        ]);
     }
 }

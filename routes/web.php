@@ -11,6 +11,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterRoomController;
+use App\Http\Controllers\TabunganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,23 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/owner', function () {
+    return view('owner');
+});
+
+Route::get('/owner/perhitungan', function () {
+    return view('addkeuangan');
+});
+Route::get('/owner/laporan-keuangan', function () {
+    return view('laporan');
+});
+
+Route::get('/pengajuan', function () {
+    return view('pengajuan');
+});
+Route::get('/cr', function () {
+    return view('createroom');
+});
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
@@ -41,11 +59,6 @@ Route::resource('/user', UserController::class);
 // kalo resource handle halaman CRUD dalam satu route
 Route::resource('/room', RoomController::class);
 
-// income route
-// Route::resource('', IncomeController::class);
-
-// outcome route
-// Route::resource('', OutcomeController::class);
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
@@ -58,12 +71,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // dashboard controller
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/test', function(){
-    Room::create([
-        'room_number' => '11',
-        'price' => '100000',            
-        'image' => 'image',
-        'status' => 'tersedia',
-        'description' => 'kamar 4x4'
-    ]);
-});
+// tabungan controller
+Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa

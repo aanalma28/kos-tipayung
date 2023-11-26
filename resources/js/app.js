@@ -43,3 +43,35 @@ themeToggleBtn.addEventListener("click", function () {
         }
     }
 });
+
+       // Update title based on URL path
+       document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            updatePageTitle();
+        }, 1000); // Delay 1 detik
+    });
+
+    // Function to update page title
+    function updatePageTitle() {
+        var path = window.location.pathname;
+        var title = "Dashboard"; // Default title
+
+        // Set title based on the last segment of the URL path
+        var pathSegments = path.split('/').filter(function (segment) {
+            return segment.trim() !== '';
+        });
+
+        if (pathSegments.length > 0) {
+            title = pathSegments[pathSegments.length - 1];
+        }
+
+        document.getElementById('pageTitle').innerText = title;
+    }
+
+    // Listen to changes in the URL (e.g., when navigating between pages)
+    window.addEventListener('popstate', function () {
+        setTimeout(function () {
+            updatePageTitle();
+        }, 1000);
+    });
+

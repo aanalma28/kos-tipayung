@@ -1,14 +1,16 @@
 @extends('layouts.guest')
 @section('content')
+<div class="w-11/12 max-w-screen-xl mx-auto pb-8">
+
 <!-- Hero section -->
     <section class="bg-white dark:bg-gray-900 px-20 py-8">
-        <div class="flex justify-between gap-8">
+        <div class="flex justify-between gap-10">
             <div class="flex-1 flex flex-col justify-center">
                 <h1 class="text-4xl text-gray-900 font-bold mb-6 dark:text-white">Kos Putra Tipayung 2</h1>
-                <p class="text-2xl text-gray-500 font-medium mb-8 dark:text-gray-400">Segera rasakan atmosfer nyaman dan aman di kos kami. Ayo, cari kamar Anda sekarang!</p>
+                <p class="text-2xl text-gray-500 font-normal mb-8 dark:text-gray-400">Segera rasakan atmosfer nyaman dan aman di kos kami. Ayo, cari kamar Anda sekarang!</p>
                 <a href="#daftarKamar" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-semibold rounded-lg text-xl px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-max">Cari kamar sekarang!</a>
             </div>
-            <div>
+            <div class="flex-1">
                 <img class="rounded-2xl" src="https://placehold.co/600x400" alt="Kos Tipayung 2">
             </div>
         </div>
@@ -122,4 +124,5 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
