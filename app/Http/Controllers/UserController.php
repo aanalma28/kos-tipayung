@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('');
+        return view('user');
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('createaccount');
+        return view('createuser');
     }
 
     /**
@@ -34,19 +34,17 @@ class UserController extends Controller
     public function store(Request $request)
     {        
         $validateData = $request->validate([
-            'role' => 'required|max:10',
-            'name' => 'required|max:20',
-            'username' => 'required|max:12',
-            'email' => 'required|unique:users|email:dns|max:50',
-            'password' => 'required|min:5|max:20',
+            'name' => 'required|max:50',
+            'username' => 'required|max:50',
+            'email' => 'required|max:100|unique:users|email:dns',
             'phone' => 'required|max:12',
-        ]);
+            'password' => 'required|max:50',
+            'role' => 'required|max:20',
+        ]);                
 
-        // $search = DB::table('users')->where('email', "=", $validateData['email']);
-
-        // if($search){
-        //     return redirect('/error')->with('error', 'Email sudah terdaftar !');
-        // }
+        if(DB::table('users')->where('email', $validateData['email'])->exists()){
+            return redirect('/user')->with('error', 'Email sudah terdaftar !');
+        }
 
         $validateData['password'] = bcrypt($validateData['password']);        
 
@@ -60,9 +58,8 @@ class UserController extends Controller
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
         ]);                
-
-        $request->session()->flash('success', 'Registration Successfull !');
-        return redirect('/success');
+        
+        return redirect('/user')->with('success', 'User has been added !');
         
     }
 
@@ -83,7 +80,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        return view('', [
+        return view('edituser', [
             'data' => $user
         ]);
     }
@@ -95,12 +92,12 @@ class UserController extends Controller
     {
         //
         $validateData = $request->validate([
-            'name' => 'required|max:20',
-            'username' => 'required|max:12',
-            'email' => 'required|unique:users|email:dns|max:50',
-            'password' => 'required|min:5|max:20',
+            'name' => 'required|max:50',
+            'username' => 'required|max:50',
+            'email' => 'required|max:100|unique:users|email:dns',
             'phone' => 'required|max:12',
-            'role' => 'required'
+            'password' => 'required|max:50',
+            'role' => 'required|max:20',
         ]);
 
         $validateData['password'] = bcrypt($validateData['password']);
@@ -114,7 +111,7 @@ class UserController extends Controller
             'phone' => $validateData['phone']
         ]);
         
-        return redirect('' . $user->id)->with('success', 'User Updated !');
+        return redirect('/user' . $user->id)->with('success', 'User Updated !');
     }
 
     /**
@@ -124,5 +121,6 @@ class UserController extends Controller
     {
         //
         User::destroy($user->id);
+        return redirect('/user')->with('success', 'User has been deleted !');
     }
 }
