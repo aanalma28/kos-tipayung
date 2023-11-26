@@ -1,8 +1,8 @@
 @extends('layouts.form')
 @section('content')
-<div id="top"></div>
 @include('partials.sidebarOwner')
 <form action="">
+@csrf
     <!-- Section input data pemasukan -->
     <section id="pm" class="px-4 md:px-20 py-4 flex items-center justify-center">
         <div class="py-8 px-4 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 rounded shadow-md w-fit">
@@ -13,22 +13,27 @@
                     <div title="Form Untuk Input Data Pemasukan" class="mt-8 max-w-sm mx-auto">
                         <!-- Input Bulan -->
                         <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan_pemasukan">
+                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan">
                                 Bulan *
                             </label>
-                            <input required name="bulan_pemasukan"
+                            <input required 
+                                name="bulan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="bulan_pemasukan" type="text" placeholder="Bulan">
+                                id="bulan" 
+                                type="text" 
+                                placeholder="Bulan">
                         </div>
 
                         <!-- Input Tahun -->
                         <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun_pemasukan">
+                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun">
                                 Tahun *
                             </label>
-                            <input required name="tahun_pemasukan"
+                            <input required name="tahun"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="tahun_pemasukan" type="text" placeholder="Tahun">
+                                id="tahun" 
+                                type="text" 
+                                placeholder="Tahun">
                         </div>
 
                         <!-- Input Uang Rental -->
@@ -38,7 +43,10 @@
                             </label>
                             <input required
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="uang_rental" name="uang_rental" type="number" placeholder="Uang Rental">
+                                id="uang_rental" 
+                                name="uang_rental" 
+                                type="number" 
+                                placeholder="Uang Rental">
                             <p href="#" title="Penyebutan Harga" id="ur-text" class="text-gray-600 text-sm italic"></p>
                         </div>
 
@@ -49,16 +57,25 @@
                             </label>
                             <input 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="lain_lain_pemasukan" name="lain_lain_pemasukan" type="number" placeholder="Lain-Lain">
+                                id="lain_lain_pemasukan" 
+                                name="lain_lain_pemasukan" 
+                                type="number" 
+                                placeholder="Lain-Lain">
                             <p href="#" title="Penyebutan Harga" id="bllpm-text" class="text-gray-600 text-sm italic"></p>
                         </div>
 
                         <!-- Total Pemasukan -->
                         <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-200 mb-2">
+                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="total_pemasukan">
                                 Total Pemasukan
                             </label>
-                            <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="total_pemasukan" required name="total_pemasukan" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
+                            <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
+                            <input id="total_pemasukan" 
+                            required 
+                            name="total_pemasukan" 
+                            type="number" 
+                            class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                            readonly>
                         </div>
                         <div class="grid grid-cols-2 gap-8">
                             <button
@@ -79,26 +96,6 @@
             <p class="text-lg w-full text-gray-600 dark:text-gray-300">Isi Formulir berikut untuk input data pengeluaran...</p>
             <div class="py-8">
                 <div title="Form Untuk Input Data Pengeluaran" class="mt-8 max-w-sm mx-auto">
-                    <!-- Input Bulan -->
-                    <div class="mb-4">
-                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="bulan_pengeluaran">
-                            Bulan *
-                        </label>
-                        <input required name="bulan_pengeluaran"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="bulan_pengeluaran" type="text" placeholder="Bulan">
-                    </div>
-
-                    <!-- Input Tahun -->
-                    <div class="mb-4">
-                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun_pengeluaran">
-                            Tahun *
-                        </label>
-                        <input required name="tahun_pengeluaran"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="tahun_pengeluaran" type="text" placeholder="Tahun">
-                    </div>
-
                     <!-- Input Biaya Utilitas -->
                     <div class="mb-4">
                         <label class="block text-gray-700 dark:text-gray-200 mb-2" for="biaya_utilitas">
@@ -106,7 +103,10 @@
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_utilitas" name="biaya_utilitas" type="number" placeholder="Biaya Utilitas">
+                            id="biaya_utilitas" 
+                            name="biaya_utilitas" 
+                            type="number" 
+                            placeholder="Biaya Utilitas">
                         <p href="#" title="Penyebutan Harga" id="bu-text" class="text-gray-600 text-sm italic"></p>
                     </div>
 
@@ -117,7 +117,10 @@
                         </label>
                         <input required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_operasional" name="biaya_operasional" type="number" placeholder="Biaya Operasional">
+                            id="biaya_operasional" 
+                            name="biaya_operasional" 
+                            type="number" 
+                            placeholder="Biaya Operasional">
                         <p href="#" title="Penyebutan Harga" id="bo-text" class="text-gray-600 text-sm italic"></p>
                     </div>
 
@@ -128,16 +131,25 @@
                         </label>
                         <input
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="biaya_lain_lain" name="biaya_lain_lain" type="number" placeholder="Lain-Lain">
+                            id="biaya_lain_lain" 
+                            name="biaya_lain_lain" 
+                            type="number" 
+                            placeholder="Lain-Lain">
                         <p href="#" title="Penyebutan Harga" id="bll-text" class="text-gray-600 text-sm italic"></p>
                     </div>
 
                     <!-- Total Pengeluaran -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 dark:text-gray-200 mb-2">
+                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="total_pengeluaran">
                             Total Pengeluaran
                         </label>
-                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="total_pengeluaran" required name="total_pengeluaran" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
+                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
+                        <input id="total_pengeluaran" 
+                        required 
+                        name="total_pengeluaran" 
+                        type="number" 
+                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                        readonly>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
                         <a id="btn-pm" onclick="toPemasukan()" href="#top" 
@@ -150,26 +162,39 @@
         </div>
     </div>
 </section>
+<!-- section hasil pendapatan -->
 <section id="hitung" class="px-4 md:px-20 py-4 flex items-center justify-center">
     <div class="py-8 px-4 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 rounded shadow-md w-fit">
         <div class="px-4 py-4 min-h-fit border-solid border-slate-700 rounded-lg">
             <h1 class="w-full md:w-[450px] text-4xl font-semibold text-gray-700 dark:text-white">Hasil Pendapatan</h1>
             <p class="text-lg w-full text-gray-600 dark:text-gray-300">Berikut hasil pendapatan yang diperoleh...</p>
             <div class="py-8">
-                <div title="Form Untuk Input Data Pengeluaran" class="mt-8 max-w-sm mx-auto">
+                <div title="Form Hasil Pendapatan" class="mt-8 max-w-sm mx-auto">
                     <!-- Hasil Pendapatan Bersih -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 dark:text-gray-200 mb-2">
+                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="pendapatan_bersih">
                         Pendapatan Bersih
                         </label>
-                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="pendapatan_bersih" required name="pendapatan_bersih" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
+                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
+                        <input required
+                         id="pendapatan_bersih"  
+                         name="pendapatan_bersih" 
+                         type="number" 
+                         class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                         readonly>
                     </div>
                     <!-- Hasil Pendapatan Kotor -->
                     <div class="mb-4">
-                        <label class="block text-gray-700 dark:text-gray-200 mb-2">
+                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="pendapatan_kotor">
                             Pendapatan Kotor
                         </label>
-                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span><input id="pendapatan_kotor" required name="pendapatan_kotor" type="number" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" readonly>
+                        <span class="text-gray-900 w-[20px] dark:text-gray-200 text-sm">Rp.</span>
+                        <input required 
+                        id="pendapatan_kotor" 
+                        name="pendapatan_kotor" 
+                        type="number" 
+                        class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1" 
+                        readonly>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
                         <button type="submit" 
@@ -183,6 +208,7 @@
 </form>
 @include('partials.footer')
 <script>
+// toggle switch to
 function toggleVisibility(elementToShow, elementToHide) {
     elementToHide.classList.add('hidden');
     elementToHide.classList.remove('flex');
@@ -214,7 +240,6 @@ function calculateTotalPemasukan() {
     const totalPemasukan = uangRental + lainLain;
     document.getElementById("total_pemasukan").value = totalPemasukan;
 
-    // Call the function to recalculate Net and Gross Income
     calculateNetAndGrossIncome();
 }
 
@@ -231,7 +256,6 @@ function calculateTotalPengeluaran() {
     const totalPengeluaran = biayaUtilitas + biayaOperasional + biayaLainLain;
     document.getElementById("total_pengeluaran").value = totalPengeluaran;
 
-    // Call the function to recalculate Net and Gross Income
     calculateNetAndGrossIncome();
 }
 
