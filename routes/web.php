@@ -12,6 +12,7 @@ use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterRoomController;
 use App\Http\Controllers\TabunganController;
+use App\Http\Controllers\AkunsetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,9 @@ Route::get('/owner/laporan-keuangan', function () {
 Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
-
+Route::get('/py', function () {
+    return view('penyewa.akunpy');
+});
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
 // jadi halaman CRUD dalam satu route
@@ -72,4 +75,14 @@ Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'
 // tabungan controller
 Route::post('/tabungan/{tabungan:id}/edit',[TabunganController::class, 'update']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+
 Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);
+
+Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+
+// Route to show user account
+Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show');
+
+// Route to update user account
+Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
+
