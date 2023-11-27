@@ -30,8 +30,7 @@ class UserController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {    //
         return view('owner.createuser', [
             'rooms' => Room::where('status', 'tersedia')->get(),
         ]);
@@ -107,7 +106,8 @@ class UserController extends Controller
     {
         //
         return view('owner.editroom', [
-            'data' => $user
+            'data' => $user,
+            'options' =>['tersedia','disinggahi']
         ]);
     }
 

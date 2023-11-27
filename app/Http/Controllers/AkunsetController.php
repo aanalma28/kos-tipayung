@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AkunsetController extends Controller
 {
-    public function showAccount(Request $request)
+    public function showAccount()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $user = auth()->user();
-        return view('penyewa.akunsetting', ['user' => $user]);
+        $sekarang = new DateTime();
+
+        return view('penyewa.akunsetting', [
+            'user' => $user,
+            'sekarang' =>$sekarang->format('Y-m-d H:i:s')
+        ]);
     }
 
     public function updateAccount(Request $request)

@@ -8,7 +8,7 @@
                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
          </button>
-        <a href="/" class="flex ms-2 md:me-24">
+        <a href="/dashboard" class="flex ms-2 md:me-24">
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Sistem manajemen kos</span>
         </a>
       </div>
@@ -46,13 +46,13 @@
                                     </button>
                                 </div>
                                     <!-- Modal body -->
-                                <form method="" action="">
+                                <form method="/pembayaran" action="post">
                                     @csrf
                                     <div class="p-4 md:p-5 space-y-4">
                                         <input type="text" name="name" value="{{$user->name}}" hidden>
-                                        <input type="text" name="name" value="{{$sekarang}}" hidden><!-- contoh output 2023-11-27 16:32:56 -->  
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                        <input type="text" name="name" value="{{$sekarang}}" ><!-- contoh output 2023-11-27 16:32:56 -->  
+                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
+                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file">
                                     </div>
                                        <!-- Modal footer -->
                                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

@@ -44,7 +44,7 @@
         <h2 class="text-gray-900 dark:text-white text-3xl font-semibold text-center mb-9">Daftar Kamar</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ( $datas as $data )
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 {{$data->status == 'disinggahi' ? 'pointer-events-none':''}}">
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto {{$data->status == 'disinggahi' ? 'pointer-events-none':''}}">
                 <a href="/register-room/{{$data->id}}/detail" class="relative">
                     <span class="bg-blue-200 text-base font-medium text-blue-800 text-center p-1 leading-none rounded-md px-2 dark:bg-blue-900 dark:text-blue-200 absolute -translate-y-1/2 translate-x-2 left-auto top-0 right-0">{{ $data->status }}</span>
                     <img class="rounded-t-lg" src="storage/{{ $data->image }}" alt="" />

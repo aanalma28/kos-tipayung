@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('user_id');
+            $table->foreignId('room_id');
+            $table->string('tanggal_pembayaran');
+            $table->enum('status',['lunas','belum lunas']);
+            $table->string('image');
         });
     }
 
