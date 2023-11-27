@@ -69,4 +69,4 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 // tabungan controller
 Route::get('/edittabungan',[TabunganController::class, 'store']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
-Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);

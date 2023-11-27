@@ -9,7 +9,6 @@ class TabunganController extends Controller
 {
 
     public function index(){
-        
     }
 
     public function create(Request $request){
@@ -27,9 +26,9 @@ class TabunganController extends Controller
     public function destroy(Tabungan $tabungan){
         $hapus = Tabungan::destroy($tabungan->id);
         if($hapus){
-            return redirect('/penyewa')->with("success","Berhasil menghapus tabungan");
+            return redirect('/dashboard')->with("success","Berhasil menghapus tabungan");
         }else{
-            return redirect('/penyewa')->with("fail","Gagal menghapus tabungan");
+            return redirect('/dashboard')->with("fail","Gagal menghapus tabungan");
         }
     }
 
