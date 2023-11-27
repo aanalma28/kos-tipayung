@@ -48,28 +48,25 @@ Route::get('/pengajuan', function () {
 // url /user -> menampilkan halaman dari semua data user
 // url /user/create -> menampilkan halaman form buat user
 // url /user/{idspesifik} -> menampilkan form halaman edit user jika user di klik
-Route::resource('/user', UserController::class)->middleware('owner');
+Route::resource('/user', UserController::class);
 
 // room route
 // kalo resource handle halaman CRUD dalam satu route
-Route::resource('/room', RoomController::class)->middleware('owner');
+Route::resource('/room', RoomController::class);
 
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
-Route::get('/register-room/{room:id}/detail', [RegisterRoomController::class, 'index']);
+Route::get('/room-{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('dashboard');
-Route::post('/dashboard/{user:id}/accept', [DashboardController::class, 'accept'])->middleware('owner');
-Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'decline'])->middleware('owner');
-Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'])->middleware('owner');
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // tabungan controller
-Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::get('/dashboard',[TabunganController::class, 'store']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
-Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
