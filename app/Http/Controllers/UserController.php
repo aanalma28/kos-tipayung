@@ -112,7 +112,6 @@ class UserController extends Controller
             'email' => 'required|unique:users|email:dns|max:50',
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
-            'password' => 'required|max:50',
             'role' => 'required|max:20',
         ]);
 

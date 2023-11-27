@@ -73,8 +73,11 @@ Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'declin
 Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'])->middleware('owner');
 
 // tabungan controller
-Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::post('/tabungan/{tabungan:id}/edit',[TabunganController::class, 'update']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+
+Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);
+
 Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
 
 // Route to show user account
@@ -82,3 +85,4 @@ Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show'
 
 // Route to update user account
 Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
+
