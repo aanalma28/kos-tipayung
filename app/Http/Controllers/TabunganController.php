@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Tabungan;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class TabunganController extends Controller
             'namatabungan' => $validateData['namatabungan'],
             'targettabungan' => $validateData['targettabungan'],
             'saldotabungan' => $validateData['saldotabungan'],            
+
         ]);
         return redirect('/dashboard')->with('success', 'Tabungan Updated !');
     }
