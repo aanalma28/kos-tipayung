@@ -8,14 +8,15 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\AkunsetController;
 use App\Http\Controllers\OutcomeController;
-use App\Http\Controllers\TabunganController;
 
+use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinancialController;
-use App\Http\Controllers\RegisterRoomController;
 
-use App\Http\Controllers\AkunsetController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\RegisterRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,3 +87,5 @@ Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbis
 Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show');
 Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
 
+// Pembayaran controller
+Route::post('/pembayaran',[PembayaranController::class,'store']);

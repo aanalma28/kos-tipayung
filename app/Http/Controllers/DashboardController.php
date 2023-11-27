@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use Carbon\Carbon;
 use App\Models\Tabungan;
 use App\Mail\RegisterMail;
 use App\Models\RegisterRoom;
@@ -16,7 +17,7 @@ class DashboardController extends Controller
         date_default_timezone_set('Asia/Jakarta');
         $user = auth()->user();
         $tabungans = auth()->user()->tabungans;
-        $sekarang = new DateTime();
+        $sekarang = Carbon::now()->addDays(90);
 
         if($user->role === 'owner'){
             return view('owner.owner', [
@@ -26,7 +27,7 @@ class DashboardController extends Controller
             return view('penyewa.penyewa',[
                 'tabungans' => $tabungans,
                 'user' => $user,
-                'sekarang' => $sekarang->format('Y-m-d H:i:s'),
+                'sekarang' => $sekarang,
             ]);
         }        
     }

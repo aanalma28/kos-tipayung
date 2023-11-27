@@ -46,13 +46,13 @@
                                     </button>
                                 </div>
                                     <!-- Modal body -->
-                                <form method="" action="">
+                                <form method="/pembayaran" action="post">
                                     @csrf
                                     <div class="p-4 md:p-5 space-y-4">
                                         <input type="text" name="name" value="{{$user->name}}" hidden>
-                                        <input type="text" name="name" value="{{$sekarang}}" hidden><!-- contoh output 2023-11-27 16:32:56 -->  
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                        <input type="text" name="name" value="{{$sekarang}}" ><!-- contoh output 2023-11-27 16:32:56 -->  
+                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
+                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file">
                                     </div>
                                        <!-- Modal footer -->
                                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
