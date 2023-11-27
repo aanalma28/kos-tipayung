@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Tabungan;
 use App\Mail\RegisterMail;
 use App\Models\RegisterRoom;
@@ -12,16 +13,20 @@ class DashboardController extends Controller
 {
     //
     public function index(){        
-        $role = auth()->user()->role;
+        date_default_timezone_set('Asia/Jakarta');
+        $user = auth()->user();
         $tabungans = auth()->user()->tabungans;
+        $sekarang = new DateTime();
 
-        if($role === 'owner'){
+        if($user->role === 'owner'){
             return view('owner.owner', [
                 'datas' => RegisterRoom::all()
             ]);
         }else{
             return view('penyewa.penyewa',[
-                'tabungans' => $tabungans
+                'tabungans' => $tabungans,
+                'user' => $user,
+                'sekarang' => $sekarang->format('Y-m-d H:i:s'),
             ]);
         }        
     }

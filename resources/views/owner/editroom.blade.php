@@ -19,6 +19,11 @@
                         id="nomor_kamar" 
                         type="text" 
                         placeholder="01, 02 ...">
+                        @error('nomor_kamar')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="status">
@@ -34,6 +39,11 @@
                             @endif    
                         @endforeach
                     </select>
+                    @error('status')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="deskripsi">
@@ -44,6 +54,11 @@
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="deskripsi" placeholder="Deskripsi">{{ $data->description }}</textarea>                        
                     </textarea>
+                    @error('deskripsi')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="harga">
@@ -57,6 +72,11 @@
                         type="number" 
                         placeholder="1000000">
                     <p href="#" title="Penyebutan Harga" id="harga-text" class="text-gray-600 text-sm italic"></p>
+                    @error('harga')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="foto_kamar">
@@ -69,6 +89,11 @@
                         type="file"
                         accept=".jpg, .jpeg, .png" >
                     <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
+                    @error('foto_kamar')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                 <div class="grid grid-cols-2 gap-8">
                     <button type="submit"

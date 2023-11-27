@@ -39,7 +39,7 @@ class RoomController extends Controller
         $validateData = $request->validate([
             'nomor_kamar' => 'required|max:20',
             'status' => 'required',
-            'deskripsi' => 'required',
+            'deskripsi' => 'required|max:255',
             'harga' => 'required|max:20',
             'foto_kamar' => 'required|image|file|max:10024',
         ]);        

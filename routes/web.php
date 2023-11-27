@@ -10,9 +10,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\TabunganController;
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinancialController;
 use App\Http\Controllers\RegisterRoomController;
+
+use App\Http\Controllers\AkunsetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +44,10 @@ Route::get('/calculate', [FinancialController::class, 'calculate']);
 Route::post('/calculate/create', [FinancialController::class, 'create']);
 Route::get('/reports', [FinancialController::class, 'reports']);
 Route::post('/reports/{data:id}/delete', [FinancialController::class, 'delete']);
+
+Route::get('/py', function () {
+    return view('penyewa.akunpy');
+});
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
@@ -71,6 +78,16 @@ Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'declin
 Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'])->middleware('owner');
 
 // tabungan controller
-Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::post('/tabungan/{tabungan:id}/edit',[TabunganController::class, 'update']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+
+Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);
+
 Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+
+// Route to show user account
+Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show');
+
+// Route to update user account
+Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
+
