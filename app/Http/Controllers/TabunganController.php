@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Tabungan;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,10 @@ class TabunganController extends Controller
 {
 
     public function index(){
+        $user = auth()->user();
         return view('penyewa.penyewa',[
-            'tabungans' => Tabungan::all()
+            'tabungans' => Tabungan::all(),
+            'user' => $user
         ]);
     }
 

@@ -1,5 +1,4 @@
 @extends('layouts.dashboard')
-
 @section('content')
     @if(session()->has('successDelete'))
         <div id="toast-danger" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
@@ -59,10 +58,10 @@
         </div>
         <div class="order-1 md:order-2 max-w-sm bg-white  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-max">
             <div class="p-5">
-                <p class="text-gray-900 dark:text-white text-lg flex justify-between">Nomor Kamar<span class="font-semibold">01</span></p>
+                <p class="text-gray-900 dark:text-white text-lg flex justify-between">Nomor Kamar<span class="font-semibold">{{ $user->room ? $user->room->room_number : 'No data' }}</span></p>
                 <div class="text-gray-900 dark:text-white text-lg flex justify-between">Harga
                     <p class="flex justify-end">
-                        <span class="font-semibold currency">2000000</span>
+                        <span class="font-semibold currency">{{ $user->room ? $user->room->price : '0' }}<</span>
                         <span class="font-semibold">/3 bln</span>
                     </p>
                 </div>

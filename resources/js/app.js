@@ -92,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //  batal edit button (penyewa.akun)
 
 const editButton = document.getElementById('editkah');
+const isEditPw = document.getElementById('isEditPw');
+const editPw = document.getElementById('editPw');
 const formInputs = document.querySelectorAll('input');
 const submitButton = document.createElement('button');
 
@@ -99,6 +101,9 @@ editButton.addEventListener('click', () => {
   formInputs.forEach(input => {
     input.removeAttribute('readonly');
   });
+
+  isEditPw.classList.remove("hidden");
+  isEditPw.classList.add("block");
 
   submitButton.type = 'submit';
   submitButton.textContent = 'Simpan Perubahan';
@@ -113,13 +118,22 @@ editButton.addEventListener('click', () => {
   batalButton.textContent = 'Batal';
   batalButton.classList.add('text-gray-500', 'hover:text-gray-700', 'border', 'border-gray-300', 'hover:bg-gray-200', 'focus:ring-4', 'focus:outline-none', 'focus:ring-blue-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'me-2', 'mb-2', 'dark:border-gray-500', 'dark:text-gray-500', 'dark:hover:text-gray-700', 'dark:hover:bg-gray-200', 'dark:focus:ring-blue-800');
 
-  batalButton.addEventListener('click', () => {
+  isEditPw.addEventListener('click', () => {
+    editPw.classList.remove("hidden");
+    editPw.classList.add("block");
+});
+batalButton.addEventListener('click', () => {
     formInputs.forEach(input => {
-      input.setAttribute('readonly', true);
+        input.setAttribute('readonly', true);
     });
-
+    
     submitButton.parentNode.removeChild(submitButton);
-
+    
+    editPw.classList.remove("block");
+    editPw.classList.add("hidden");
+    
+    isEditPw.classList.remove("block");
+    isEditPw.classList.add("hidden");
     editButton.style.display = 'block';
 
     const lastChild = editButton.parentNode.lastElementChild;
@@ -129,6 +143,21 @@ editButton.addEventListener('click', () => {
   });
 
   editButton.parentNode.appendChild(batalButton);
+});
 
-  // Add a delay before setting the form's type to submit
+// tampil password bagian akun setting
+const oldPasswordField = document.getElementById('old_password');
+const newPasswordField = document.getElementById('new_password');
+
+const toggleOldPasswordButton = document.getElementById('showPw');
+toggleOldPasswordButton.addEventListener('click', () => {
+    if (oldPasswordField.type === 'password') {
+        oldPasswordField.type = 'text';
+        newPasswordField.type = 'text';
+        toggleOldPasswordButton.textContent = "Sembunyikan Password";
+    } else {
+        oldPasswordField.type = 'password';
+        newPasswordField.type = 'password';
+        toggleOldPasswordButton.textContent = "Lihat Password";
+    }
 });
