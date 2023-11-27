@@ -61,6 +61,7 @@ Route::resource('/room', RoomController::class)->middleware('owner');
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
+Route::get('/register-room/createaccount/{room:id}', [RegisterRoomController::class, 'account']);
 Route::get('/register-room/{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route

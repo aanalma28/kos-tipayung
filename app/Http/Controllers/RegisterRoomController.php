@@ -47,4 +47,12 @@ class RegisterRoomController extends Controller
 
         return redirect('/')->with('success', 'Data has been send !');
     }
+
+    public function account($id)
+    {   $data = RegisterRoom::find($id);
+        return view('owner.createuser',[
+            'data' =>$data,
+            'rooms' => Room::where('status', 'tersedia')->get(),
+        ]);
+    }
 }
