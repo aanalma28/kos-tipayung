@@ -9,9 +9,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RegisterRoomController;
 use App\Http\Controllers\TabunganController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinancialController;
+use App\Http\Controllers\RegisterRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,16 +31,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/owner/perhitungan', function () {
-    return view('owner.addkeuangan');
-});
-Route::get('/owner/laporan-keuangan', function () {
-    return view('owner.laporan');
-});
 
 Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
+
+// route financial
+Route::get('/calculate', [FinancialController::class, 'calculate']);
+Route::post('/calculate/create', [FinancialController::class, 'create']);
+Route::get('/reports', [FinancialController::class, 'reports']);
+Route::post('/reports/{data:id}/delete', [FinancialController::class, 'delete']);
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner

@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('content')
 <div class="scroll-smooth">
-<form action="">
+<form action="/calculate/create" method="post">
 @csrf
     <!-- Section input data pemasukan -->
     <section id="pm" class="px-4 md:px-20 py-4 flex items-center justify-center">
