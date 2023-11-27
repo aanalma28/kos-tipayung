@@ -11,7 +11,7 @@
                 <div class="flex flex-col w-full gap-1 md:w-1/4">
                     <p class="flex justify-between text-gray-900 dark:text-white font-light">No. Kamar <span class="font-semibold">{{$data->room_number}}</span></p>
                     <p class="flex justify-between text-gray-900 dark:text-white font-light">Status <span class="font-semibold">{{$data->status}}</span></p>
-                    <p class="flex justify-between text-gray-900 dark:text-white font-light">Harga <span class="font-semibold">{{number_format($data->price, 0, ',', '.')}}</span></p>
+                    <p class="flex justify-between text-gray-900 dark:text-white font-light">Harga <span class="font-semibold">Rp. {{number_format($data->price, 0, ',', '.')}}</span></p>
                     <!-- Modal toggle -->
                     <button data-modal-target="form-sewa-modal" data-modal-toggle="form-sewa-modal" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md text-md px-5 py-2.5 mb-2 mt-4 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
                     Ajukan penyewaan!
@@ -53,10 +53,20 @@
                                         <div>
                                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email <span class="text-red-600">*</span></label>
                                             <input type="text" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: johndoe@example.com" required>
+                                            @error('email')
+                                                <div class="text-red-600">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div>
-                                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password <span class="text-red-600">*</span></label>
+                                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telepon<span class="text-red-600">*</span></label>
                                             <input type="phone" name="phone" id="phone" placeholder="Contoh: 085xxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            @error('phone')
+                                                <div class="text-red-600">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div>                                            
                                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Foto KTP/KK</label>
@@ -69,9 +79,9 @@
                         </div>
                     </div> 
                 </div>
-                <div class="flex flex-col flex-1 gap-2 ">
-                    <h5 class="text-gray-900 dark:text-white font-light">Deskripsi</h5>
-                    <p class="text-gray-900 dark:text-white ">{!!$data->description!!}</p>
+                <div class="flex flex-col flex-1 gap-2 text-gray-900 dark:text-white">
+                    <h5 class="font-light">Deskripsi</h5>
+                    {!!nl2br(e($data->description))!!}
                 </div>
             </div>
         </section>
