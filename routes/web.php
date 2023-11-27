@@ -45,10 +45,6 @@ Route::post('/calculate/create', [FinancialController::class, 'create']);
 Route::get('/reports', [FinancialController::class, 'reports']);
 Route::post('/reports/{data:id}/delete', [FinancialController::class, 'delete']);
 
-Route::get('/py', function () {
-    return view('penyewa.akunpy');
-});
-
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
 // jadi halaman CRUD dalam satu route
@@ -85,9 +81,7 @@ Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy'
 
 Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
 
-// Route to show user account
+// Akun setting controller
 Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show');
-
-// Route to update user account
 Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
 
