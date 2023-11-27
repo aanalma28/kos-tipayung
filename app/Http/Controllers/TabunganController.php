@@ -8,7 +8,19 @@ use Illuminate\Http\Request;
 class TabunganController extends Controller
 {
 
-    public function index(){
+    public function update(Request $request, Tabungan $tabungan){
+        $validateData = $request->validate([
+            'namatabungan' => 'required',
+            'targettabungan' => 'required',
+            'saldotabungan' => 'required',    
+        ]);
+
+        $tabungan->update([
+            'namatabungan' => $validateData['namatabungan'],
+            'targettabungan' => $validateData['targettabungan'],
+            'saldotabungan' => $validateData['saldotabungan'],            
+        ]);
+        return redirect('/dashboard')->with('success', 'Tabungan Updated !');
     }
 
     public function create(Request $request){

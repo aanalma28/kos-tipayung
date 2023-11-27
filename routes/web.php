@@ -70,6 +70,6 @@ Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'declin
 Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'])->middleware('owner');
 
 // tabungan controller
-Route::get('/edittabungan',[TabunganController::class, 'store']);
+Route::post('/tabungan/{tabungan:id}/edit',[TabunganController::class, 'update']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
 Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);

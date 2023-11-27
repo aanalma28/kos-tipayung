@@ -70,9 +70,15 @@
                 @foreach ($tabungans as $tabungan)
                 <div class="block bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
                     <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$tabungan->namatabungan}}</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Target : Rp {{$tabungan->targettabungan}}</p>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Saldo : Rp {{$tabungan->saldotabungan}}</p>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Kurang <span class="text-red-700">Rp {{$tabungan->targettabungan - $tabungan->saldotabungan}}</span></p>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Target : Rp {{number_format($tabungan->targettabungan, 0, ',', '.')}}</p>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Saldo : Rp {{number_format($tabungan->saldotabungan, 0, ',', '.')}}</p>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        @if ($tabungan->targettabungan - $tabungan->saldotabungan >= 0)
+                        Tabungan kurang <span class="text-red-700">Rp {{number_format($tabungan->targettabungan - $tabungan->saldotabungan, 0, ',', '.')}}</span> lagi
+                        @else
+                        Tabungan lebih <span class="text-green-700">Rp {{number_format(abs($tabungan->targettabungan - $tabungan->saldotabungan), 0, ',', '.')}}</span> melebihi target 
+                        @endif
+                    </p>
                     <div class="mt-2 flex justify-center items-center gap-8">
                         <!-- Modal toggle -->
                         <button data-modal-target="{{$tabungan->id}}" data-modal-toggle="{{$tabungan->id}}" class=" block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex-1" type="button">
@@ -104,7 +110,7 @@
                                     </div>
                                     <!-- Modal body -->
                                     <div class="p-4 md:p-5">
-                                        <form class="space-y-4" action="/edittabungan" method="post">
+                                        <form class="space-y-4" action="/tabungan/{{$tabungan->id}}/edit" method="post">
                                             @csrf
                                             <div>
                                                 <label for="namatabungan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama tabungan</label>
