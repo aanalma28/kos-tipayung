@@ -28,18 +28,38 @@
                     <label class="block">
                         <span class="text-gray-700 dark:text-gray-200">Name <span class="text-red-600">*</span></span>
                         <input type="text" name="name" id="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: John Doe" required>
+                        @error('name')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </label>
                     <label class="block mt-3">
                         <span class="text-gray-700 dark:text-gray-200">Email <span class="text-red-600">*</span></span>
                         <input type="email" name="email" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh@gmail.com" required>
+                        @error('email')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </label>
                     <label class="block mt-3">
                         <span class="text-gray-700 dark:text-gray-200">Phone <span class="text-red-600">*</span></span>
                         <input type="number" name="phone" id="phone" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Contoh: 081234567890" required>
+                        @error('phone')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </label>
                     <label class="block mt-3">
                         <span class="text-gray-700 dark:text-gray-200">Password <span class="text-red-600">*</span></span>
                         <input type="password" name="password" id="confirmPassword"  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan Password..." required>
+                        @error('password')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                        @enderror
                         <button type="button" onclick="togglePasswordVisibility('confirmPassword')" class="mt-2 text-gray-400 ">Lihat Password</button>
                     </label>
                     <label class="block mt-3" for="room_number">
@@ -51,6 +71,11 @@
                             <option value="{{ $room->room_number }}">{{ $room->room_number }}</option>
                         @endforeach
                     </select>
+                    @error('room_number')
+                        <div class="text-red-600">
+                            {{$message}}
+                        </div>
+                    @enderror
                     <div class="grid grid-cols-2 gap-8">
                     <button type="submit"
                         class="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Buat Akun</button>

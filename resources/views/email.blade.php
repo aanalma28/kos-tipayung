@@ -9,5 +9,6 @@
 </head>
 <body>
     <h3>Halo, {{ $ArrayData['name'] }}</h3>
+    <p>Terima kasih sudah mengajukan penyewaan di kos kami. Silahkan tunggu email selanjutnya dari kami.</p>
 </body>
 </html>

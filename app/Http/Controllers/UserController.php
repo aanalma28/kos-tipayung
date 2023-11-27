@@ -6,9 +6,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use App\Models\User;
+use App\Mail\RegisterMail;
 use App\Models\RegisterRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -46,7 +48,15 @@ class UserController extends Controller
             'password' => 'required|min:5|max:20',
             'phone' => 'required|max:12',
             'room_number' => 'required'
-        ]);                
+        ]);        
+        
+        $arrayData = [
+            'name' => $validateData['name'],
+            'email' => $validateData['email'],
+            'password' => $validateData['password']
+        ];
+
+        Mail::to($validateData['email'])->send(new RegisterMail($arrayData, 'giveaccountemail'));
 
         if(DB::table('users')->where('email', $validateData['email'])->exists()){
             return redirect('/user/create')->with('error', 'Email sudah terdaftar !');
@@ -67,7 +77,7 @@ class UserController extends Controller
             'email' => $validateData['email'],
             'password' => $validateData['password'],
             'phone' => $validateData['phone'],
-        ]);
+        ]);        
 
         $user = User::where('email', $validateData['email'])->first();        
         

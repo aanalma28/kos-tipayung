@@ -90,7 +90,7 @@
                         @if($datas->isEmpty())
                         <!-- jika tidak ada data -->
                         <tr>
-                            <th scope="row" class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white" colspan="4">Tidak ada pengajuan sewa</th>
+                            <th scope="row" class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white" colspan="4">Tidak ada laporan keuangan</th>
                         </tr>
                         @else
                         @foreach($datas as $data)

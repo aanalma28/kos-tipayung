@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Hello, {{$ArrayData['name']}}</h3>
-    <p>Penngajuan kamu disetujui !. Silahkan tunggu email dari kami yang mengirimkan data akun untuk loginnya.</p>    
+    <h3>Halo, {{$ArrayData['name']}}</h3>
+    <p>Berikut adalah akun untuk loginnya:</p>
+    <p>Email: {{$ArrayData['email']}}</p>
+    <p>Password: {{$ArrayData['password']}}</p>
 </body>
 </html>

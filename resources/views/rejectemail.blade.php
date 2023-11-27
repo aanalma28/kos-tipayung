@@ -8,6 +8,6 @@
 </head>
 <body>
     <h3>Hello, {{$ArrayData['name']}}</h3>
-    <p>Your request has been Rejected !</p>
+    <p>Pengajuanmu ditolak !. Silahkan kirim ulang pengajuan beserta data yang benar.</p>
 </body>
 </html>
