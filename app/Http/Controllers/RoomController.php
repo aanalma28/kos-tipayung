@@ -95,10 +95,10 @@ class RoomController extends Controller
         $validateData = $request->validate([
             'nomor_kamar' => 'required|max:5',
             'deskripsi' => 'required|max:255',
-            'harga' => 'required|max:20',        
+            'harga' => 'required|max:20',    
             'foto_kamar' => 'file|image|max:10024',
             'status' => 'required',
-        ]);  
+        ]);
 
         if($request->file('foto_kamar')){
             if ($room->image && file_exists(storage_path('app/public/' . $room->image))){                
