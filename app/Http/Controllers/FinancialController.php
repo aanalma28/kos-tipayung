@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Financial;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,13 @@ class FinancialController extends Controller
 {
     //
     public function calculate(){
-        return view('owner.addkeuangan');
+        $currentYear = Carbon::now()->year;
+        $years = range($currentYear, $currentYear - 5);
+
+        return view('owner.addkeuangan', [
+            'years' => $years,
+        ]);
+
     }
 
     public function create(Request $request){        

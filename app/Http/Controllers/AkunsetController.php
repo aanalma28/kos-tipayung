@@ -17,7 +17,7 @@ class AkunsetController extends Controller
 
         return view('penyewa.akunsetting', [
             'user' => $user,
-            'sekarang' =>$sekarang->format('Y-m-d H:i:s')
+            'current' =>$sekarang->format('Y-m-d H:i:s')
         ]);
     }
 
