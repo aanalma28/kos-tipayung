@@ -17,7 +17,7 @@ class DashboardController extends Controller
         date_default_timezone_set('Asia/Jakarta');
         $user = auth()->user();
         $tabungans = auth()->user()->tabungans;
-        $sekarang = Carbon::now()->addDays(90);
+        $current = Carbon::now();
 
         if($user->role === 'owner'){
             return view('owner.owner', [
@@ -27,7 +27,7 @@ class DashboardController extends Controller
             return view('penyewa.penyewa',[
                 'tabungans' => $tabungans,
                 'user' => $user,
-                'sekarang' => $sekarang,
+                'current' => $current,
             ]);
         }        
     }

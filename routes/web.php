@@ -88,4 +88,4 @@ Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show'
 Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
 
 // Pembayaran controller
-Route::post('/pembayaran',[PembayaranController::class,'store']);
+Route::post('/pembayaran/submit',[PembayaranController::class,'store']);

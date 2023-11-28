@@ -78,12 +78,13 @@
                 <td class="px-6 py-4">
                     <!-- if status !== "pending" render -->
                     @if($data->status != 'pending')
-                    <form method="post" action="/dashboard/{{$data->id}}/delete">
-                        @csrf
-                        <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Hapus</button>
-                    </form>
                         @if ($data->status == 'accepted')
-                            <a href="/register-room/createaccount/{{$data->id}}" class="text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-600 dark:focus:ring-teal-900">Buatkan akun</a>
+                        <a href="/register-room/createaccount/{{$data->id}}" class="text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-600 dark:focus:ring-teal-900">Buatkan akun</a>
+                        @elseif ($data->status == 'rejected')
+                        <form method="post" action="/dashboard/{{$data->id}}/delete">
+                            @csrf
+                            <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Hapus</button>
+                        </form>
                         @endif
                     @else
                     <!-- Modal toggle -->
@@ -153,20 +154,17 @@
     </table>
 </div>
 
-<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6 mt-12">Konfirmasi pembayaran</h1>
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6 mt-12">Riwayat pembayaran</h1>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Nama Lengkap
+                    Waktu
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Nomor HP
+                    Nama
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Nomor Kamar
@@ -193,9 +191,6 @@
                 </td>
                 <td class="px-6 py-4">
                     Laptop
-                </td>
-                <td class="px-6 py-4">
-                    01
                 </td>
                 <td class="px-6 py-4">
                     Pending

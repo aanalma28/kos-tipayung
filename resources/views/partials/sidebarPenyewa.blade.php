@@ -46,13 +46,14 @@
                                     </button>
                                 </div>
                                     <!-- Modal body -->
-                                <form method="/pembayaran" action="post">
+                                <form method="/pembayaran/submit" action="post">
                                     @csrf
                                     <div class="p-4 md:p-5 space-y-4">
-                                        <input type="text" name="name" value="{{$user->name}}" hidden>
-                                        <input type="text" name="name" value="{{$sekarang}}" ><!-- contoh output 2023-11-27 16:32:56 -->  
+                                        <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                                        <input type="text" name="room_id" value="{{$user->room->id}}" hidden>
+                                        <input type="text" name="waktu" value="{{$current}}" hidden readonly>
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
-                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file">
+                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" required>
                                     </div>
                                        <!-- Modal footer -->
                                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
