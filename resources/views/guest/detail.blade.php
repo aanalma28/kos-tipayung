@@ -61,7 +61,7 @@
                                         </div>
                                         <div>
                                             <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telepon<span class="text-red-600">*</span></label>
-                                            <input type="phone" name="phone" id="phone" placeholder="Contoh: 085xxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                            <input type="number" name="phone" id="phone" placeholder="Contoh: 085xxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                             @error('phone')
                                                 <div class="text-red-600">
                                                     {{$message}}
