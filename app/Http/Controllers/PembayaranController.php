@@ -30,4 +30,22 @@ class PembayaranController extends Controller
 
         return redirect('/dashboard')->with('success', 'Payment evidence has been send !');
     }
+
+    public function accept(Pembayaran $pembayaran){
+        $pembayaran->update([
+            'status' => 'lunas'
+        ]);
+
+        // Mail::to($user->email)->send(new RegisterMail($arrayData, 'acceptemail'));
+        return redirect('/dashboard')->with('success', 'Accept feedback send !');
+    }
+
+    public function reject(Pembayaran $pembayaran){
+        $pembayaran->update([
+            'status' => 'tidak valid'
+        ]);
+
+        // Mail::to($user->email)->send(new RegisterMail($arrayData, 'acceptemail'));
+        return redirect('/dashboard')->with('success', 'Accept feedback send !');
+    }
 }

@@ -89,3 +89,5 @@ Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('
 
 // Pembayaran controller
 Route::post('/pembayaran/submit',[PembayaranController::class,'store']);
+Route::post('/pembayaran/{pembayaran:id}/accept',[PembayaranController::class,'accept']);
+Route::post('/pembayaran/{pembayaran:id}/reject',[PembayaranController::class,'reject']);

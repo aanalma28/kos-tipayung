@@ -45,7 +45,7 @@ class RoomController extends Controller
         ]);        
         
         if(DB::table('rooms')->where('room_number', $validateData['nomor_kamar'])->exists()){
-            return redirect('/room')->with('error', 'Nomor Kamar Sudah ada !');            
+            return redirect('/room')->with('fail', 'Nomor Kamar Sudah ada !');            
         }
 
         if($request->file('foto_kamar')){

@@ -17,10 +17,10 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){                   
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/dashboard')->with('success','Login Success!');
         }        
 
-        return redirect('/error')->with('Error', 'Login Failed !');
+        return redirect('/')->with('fail', 'Login Failed !');
     }
 
     public function logout(Request $request){
