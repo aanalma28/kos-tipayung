@@ -6,6 +6,7 @@ use DateTime;
 use Carbon\Carbon;
 use App\Models\Tabungan;
 use App\Mail\RegisterMail;
+use App\Models\Pembayaran;
 use App\Models\RegisterRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,24 @@ class DashboardController extends Controller
         $user = auth()->user();
         $tabungans = auth()->user()->tabungans;
         $current = Carbon::now();
+        $get_user_bayar = Pembayaran::where('user_id',$user->id)->latest()->get();
+        $user_bayar = Pembayaran::where('user_id',$user->id)->latest()->first();
+        if($get_user_bayar->count()){
+            $tanggalPembayaran = Carbon::parse($user_bayar->tanggal_pembayaran);
+            $tanggalPembayaranFormatted = $tanggalPembayaran->toFormattedDateString();
+            $user_tenggat = $tanggalPembayaran->addMonths(3)->toFormattedDateString();
+            if (now()->greaterThan($user_tenggat)) {
+                $sisa_hari = "Sudah waktunya membayar";
+            } else {
+                $sisa = now()->diffInDays($user_tenggat);
+                $sisa_hari = $sisa . ' Hari lagi'; 
+            }
+        }else{
+            $tanggalPembayaranFormatted = '';
+            $user_tenggat = '';
+            $sisa_hari = ''; 
+        }
+
 
         if($user->role === 'owner'){
             return view('owner.owner', [
@@ -28,6 +47,10 @@ class DashboardController extends Controller
                 'tabungans' => $tabungans,
                 'user' => $user,
                 'current' => $current,
+                'get_user_bayar' => $get_user_bayar,
+                'user_bayar' => $tanggalPembayaranFormatted,
+                'user_tenggat' => $user_tenggat,
+                'sisa_hari' => $sisa_hari
             ]);
         }        
     }
