@@ -19,8 +19,18 @@ class DashboardController extends Controller
         $user = auth()->user();
         $tabungans = auth()->user()->tabungans;
         $current = Carbon::now();
+        $get_user_all_bayar = Pembayaran::latest()->get();
         $get_user_bayar = Pembayaran::where('user_id',$user->id)->latest()->get();
         $user_bayar = Pembayaran::where('user_id',$user->id)->latest()->first();
+
+        foreach ($get_user_all_bayar as $invoice) {
+            $tenggatPembayaran = Carbon::parse($invoice->tanggal_pembayaran)->addMonths(3)->toFormattedDateString();
+        
+            $sisaHari = now()->diffInDays($tenggatPembayaran);
+        
+            $invoice->sisa_hari = $sisaHari;
+        }
+
         if($get_user_bayar->count()){
             $tanggalPembayaran = Carbon::parse($user_bayar->tanggal_pembayaran);
             $tanggalPembayaranFormatted = $tanggalPembayaran->toFormattedDateString();
@@ -40,7 +50,9 @@ class DashboardController extends Controller
 
         if($user->role === 'owner'){
             return view('owner.owner', [
-                'datas' => RegisterRoom::all()
+                'datas' => RegisterRoom::all(),
+                'user' => $user,
+                'invoice_all' => $get_user_all_bayar,
             ]);
         }else{
             return view('penyewa.penyewa',[

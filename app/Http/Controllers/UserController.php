@@ -58,7 +58,7 @@ class UserController extends Controller
         Mail::to($validateData['email'])->send(new RegisterMail($arrayData, 'giveaccountemail'));
 
         if(DB::table('users')->where('email', $validateData['email'])->exists()){
-            return redirect('/user/create')->with('error', 'Email sudah terdaftar !');
+            return redirect('/user/create')->with('fail', 'Email sudah terdaftar !');
         }
 
         $validateData['password'] = bcrypt($validateData['password']);
@@ -67,7 +67,7 @@ class UserController extends Controller
         $room = Room::where('room_number', $validateData['room_number'])->first();                
 
         if(!$room){
-            return redirect('/user/create')->with('error', 'Nomor kamar tidak ditemukan');
+            return redirect('/user/create')->with('fail', 'Nomor kamar tidak ditemukan');
         }
 
         User::create([
