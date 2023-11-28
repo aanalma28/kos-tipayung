@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('status');
             $table->string("name");
             $table->string('email')->unique();
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('image');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
