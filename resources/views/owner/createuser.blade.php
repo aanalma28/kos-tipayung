@@ -54,7 +54,7 @@
                     </label>
                     <label class="block mt-3">
                         <span class="text-gray-700 dark:text-gray-200">Password <span class="text-red-600">*</span></span>
-                        <input type="password" name="password" id="confirmPassword" value="kostipayung" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan Password..." required>
+                        <input type="password" name="password" id="confirmPassword" value="" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan Password..." required>
                         @error('password')
                             <div class="text-red-600">
                                 {{$message}}

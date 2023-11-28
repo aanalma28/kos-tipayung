@@ -58,7 +58,7 @@ class DashboardController extends Controller
 
         Mail::to($user->email)->send(new RegisterMail($arrayData, 'rejectemail'));
         return redirect('/dashboard')->with('success', 'Reject feedback send !');
-    }
+    }    
 
     public function delete(RegisterRoom $user){
         RegisterRoom::destroy($user->id);
