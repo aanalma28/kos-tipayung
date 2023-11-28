@@ -46,19 +46,14 @@
                                     </button>
                                 </div>
                                     <!-- Modal body -->
-                                <form method="/pembayaran" action="post">
+                                <form method="post" action="pembayaran/submit">
                                     @csrf
-                                    <div class="p-4 md:p-5 space-y-4">                                        
-                                        <input type="text" name="id_user" value="{{$user->id}}" hidden>
-                                        <input type="text" name="id_room" value="{{$user->room->id}}" hidden>
-                                        <input type="text" name="date_now" value="{{$sekarang}}" readonly><!-- contoh output 2023-11-27 16:32:56 -->
-                                        <select required id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option value="" disabled selected >Pilih Status</option>
-                                            <option value="lunas">Lunas</option>
-                                            <option value="belum lunas">Belum Lunas</option>
-                                        </select>
+                                    <div class="p-4 md:p-5 space-y-4">
+                                        <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                                        <input type="text" name="room_id" value="{{$user->room->id}}" hidden>
+                                        <input type="text" name="waktu" value="{{$current}}" hidden readonly>
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
-                                        <input id="image" type="file" name="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" required>
                                     </div>
                                        <!-- Modal footer -->
                                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

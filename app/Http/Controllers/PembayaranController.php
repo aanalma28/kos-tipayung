@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
 {
     //
     public function store(Request $request){
-        $vallidateData = $request->validate([
-            'id_user' => 'required',
-            'id_room' => 'required',
-            'date_now' => 'required',
-            'status' => 'required',
-            'image' => 'required|image|file|max:10024'
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'room_id' => 'required',
+            'waktu' => 'required',
+            'image' => 'required|file|image|max:10024',
         ]);
 
+        dd($validateData);
+
         if($request->file('image')){
-            $vallidateData['image'] = $request->file('image')->store('bukti_pembayaran');
+            $validateData['image'] = $request->file('image')->store('pembayaran');
         }
 
         Pembayaran::create([
-            'user_id' => $vallidateData['id_user'],
-            'room_id' => $vallidateData['id_room'],
-            'tanggal_pembayaran' => $vallidateData['date_now'],
-            'status' => $vallidateData['status'],
-            'image' => $vallidateData['image']
+            'user_id' => $validateData['user_id'],
+            'room_id' => $validateData['room_id'],
+            'tanggal_pembayaran' => $validateData['waktu'],
+            'image' => $validateData['image']
         ]);
 
-        return redirect('/dashboard')->with('success', 'Bukti pembayaran sudah dikirim');
+        return redirect('/dashboard')->with('success', 'Payment evidence has been send !');
     }
 }
