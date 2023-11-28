@@ -8,10 +8,15 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\AkunsetController;
 use App\Http\Controllers\OutcomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RegisterRoomController;
+
 use App\Http\Controllers\TabunganController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinancialController;
+
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\RegisterRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,16 +35,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/owner/perhitungan', function () {
-    return view('owner.addkeuangan');
-});
-Route::get('/owner/laporan-keuangan', function () {
-    return view('owner.laporan');
-});
 
 Route::get('/pengajuan', function () {
     return view('guest.pengajuan');
 });
+
+// route financial
+Route::get('/calculate', [FinancialController::class, 'calculate']);
+Route::post('/calculate/create', [FinancialController::class, 'create']);
+Route::get('/reports', [FinancialController::class, 'reports']);
+Route::post('/reports/{data:id}/delete', [FinancialController::class, 'delete']);
 
 // user route
 // route ini digunakan untuk handle halaman CRUD user di dashboard owner
@@ -48,15 +53,16 @@ Route::get('/pengajuan', function () {
 // url /user -> menampilkan halaman dari semua data user
 // url /user/create -> menampilkan halaman form buat user
 // url /user/{idspesifik} -> menampilkan form halaman edit user jika user di klik
-Route::resource('/user', UserController::class);
+Route::resource('/user', UserController::class)->middleware('owner');
 
 // room route
 // kalo resource handle halaman CRUD dalam satu route
-Route::resource('/room', RoomController::class);
+Route::resource('/room', RoomController::class)->middleware('owner');
 
 
 // register room
 Route::post('/register-room', [RegisterRoomController::class, 'create']);
+Route::get('/register-room/createaccount/{room:id}', [RegisterRoomController::class, 'account']);
 Route::get('/register-room/{room:id}/detail', [RegisterRoomController::class, 'index']);
 
 // login route
@@ -64,12 +70,22 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // dashboard controller
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::post('/dashboard/{user:id}/accept', [DashboardController::class, 'accept']);
-Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'decline']);
-Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('dashboard');
+Route::post('/dashboard/{user:id}/accept', [DashboardController::class, 'accept'])->middleware('owner');
+Route::post('/dashboard/{user:id}/decline', [DashboardController::class, 'decline'])->middleware('owner');
+Route::post('/dashboard/{user:id}/delete', [DashboardController::class, 'delete'])->middleware('owner');
 
 // tabungan controller
-Route::get('/penyewa',[TabunganController::class, 'index']);
+Route::post('/tabungan/{tabungan:id}/edit',[TabunganController::class, 'update']);
 Route::post('/tambahtabungan',[TabunganController::class, 'create']);
+
+Route::post('/{tabungan:id}/hapustabungan',[TabunganController::class, 'destroy']);
+
 Route::post('/hapustabungan',[TabunganController::class, 'destroy']); //belumbisa
+
+// Akun setting controller
+Route::get('/akun', [AkunsetController::class, 'showAccount'])->name('akun.show');
+Route::post('/akun/update', [AkunsetController::class, 'updateAccount'])->name('akun.update');
+
+// Pembayaran controller
+Route::post('/pembayaran/submit',[PembayaranController::class,'store']);
