@@ -26,14 +26,14 @@
 
                         <!-- Input Tahun -->
                         <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun">
-                                Tahun <span class="text-red-600">*</span>
-                            </label>
-                            <input required name="tahun"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                id="tahun"
-                                type="text"
-                                placeholder="Tahun">
+                        <label class="block text-gray-700 dark:text-gray-200 mb-2" for="tahun">
+                            Tahun <span class="text-red-600">*</span>
+                        </label>
+                        <select required name="tahun" id="tahun" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach($years as $year)
+                                <option value="{{ $year }}">{{ $year }}</option>
+                            @endforeach
+                        </select>
                         </div>
 
                         <!-- Input Uang Rental -->

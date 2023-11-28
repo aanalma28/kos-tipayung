@@ -17,7 +17,7 @@ class AkunsetController extends Controller
 
         return view('penyewa.akunsetting', [
             'user' => $user,
-            'sekarang' =>$sekarang->format('Y-m-d H:i:s')
+            'current' =>$sekarang->format('Y-m-d H:i:s')
         ]);
     }
 
@@ -32,7 +32,7 @@ class AkunsetController extends Controller
             $old_password_hash = bcrypt($old_password);
             
             if (!Hash::check($old_password, $user->password)) {
-                return redirect()->back()->with('error', 'Kata sandi lama salah.');
+                return redirect()->back()->with('error', 'Password lama salah.');
             }
             $user->password = bcrypt($new_password);
         }
