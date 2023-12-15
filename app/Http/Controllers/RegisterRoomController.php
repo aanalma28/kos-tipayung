@@ -26,13 +26,14 @@ class RegisterRoomController extends Controller
             'name' => 'required|max:20',
             'email' => 'required|email:dns|max:50',
             'phone' => 'required|max:12',
+            'url' => 'max:255',
             'image' => 'required|file|image|max:10024'
         ]);
 
 
-        if($request->file('image')){
-            $validateData['image'] = $request->file('image')->store('ktp');
-        }
+        // if($request->file('image')){
+        //     $validateData['image'] = $request->file('image')->store('ktp');
+        // }
 
         RegisterRoom::create([
             'room_number' => $validateData['room_number'],
@@ -40,7 +41,7 @@ class RegisterRoomController extends Controller
             'name' => $validateData['name'],
             'email' => $validateData['email'],
             'phone' => $validateData['phone'],
-            'image' => $validateData['image']
+            'image' => $validateData['url']
         ]);
 
         Mail::to($validateData['email'])->send(new RegisterMail($arrayData, 'email'));

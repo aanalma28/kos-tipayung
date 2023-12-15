@@ -53,11 +53,14 @@
                                         <input type="text" name="room_id" value="{{$user->room->id}}" hidden>
                                         <input type="text" name="waktu" value="{{$current}}" hidden readonly>
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
-                                        <input name="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" required>
+                                        <input name="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="foto_pengajuan" type="file"accept=".jpg, .jpeg, .png" max="10485760" required>
+                                        <p class="text-gray-600 text-xs italic">Max 10Mb Format JPG atau PNG</p>
+                                        <div class="notifs dark:text-white"></div>
+                                        <input type="text" name="url" id="url" class="urlimg hidden" required readonly>
                                     </div>
                                        <!-- Modal footer -->
                                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                        <button data-modal-hide="bukti-modal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kirim</button>
+                                        <button data-modal-hide="bukti-modal" type="submit" disabled class="waitsubmit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kirim</button>
                                     </div>
                                 </form>
                             </div>

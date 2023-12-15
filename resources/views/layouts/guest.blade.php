@@ -11,6 +11,7 @@
         } else {
             document.documentElement.classList.remove('dark')
         }
+        window.imgurClientId = atob("{{ base64_encode(env('IMGUR_CLIENT_ID')) }}");
     </script>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
