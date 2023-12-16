@@ -16,8 +16,8 @@
                     <input required name="nomor_kamar"
                         value="{{ $data->room_number }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="nomor_kamar" 
-                        type="text" 
+                        id="nomor_kamar"
+                        type="text"
                         placeholder="01, 02 ...">
                         @error('nomor_kamar')
                             <div class="text-red-600">
@@ -36,7 +36,7 @@
                                 <option value="{{strtolower($option)}}" selected>{{$option}}</option>
                                 @else
                                 <option value="{{strtolower($option)}}">{{$option}}</option>
-                            @endif    
+                            @endif
                         @endforeach
                     </select>
                     @error('status')
@@ -49,10 +49,10 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="deskripsi">
                         Deskripsi <span class="text-red-600">*</span>
                     </label>
-                    <textarea required 
+                    <textarea required
                         name="deskripsi"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="deskripsi" placeholder="Deskripsi">{{ $data->description }}</textarea>                        
+                        id="deskripsi" placeholder="Deskripsi">{{ $data->description }}</textarea>
                     </textarea>
                     @error('deskripsi')
                             <div class="text-red-600">
@@ -65,11 +65,11 @@
                         Harga <span class="text-red-600">*</span>
                     </label>
                     <input required
-                        value="{{ $data->price }}" 
+                        value="{{ $data->price }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="harga" 
-                        name="harga" 
-                        type="number" 
+                        id="harga"
+                        name="harga"
+                        type="number"
                         placeholder="1000000">
                     <p href="#" title="Penyebutan Harga" id="harga-text" class="text-gray-600 text-sm italic"></p>
                     @error('harga')
@@ -82,22 +82,20 @@
                     <label class="block text-gray-700 dark:text-gray-200 mb-2" for="foto_kamar">
                         Upload Foto Kamar <span class="text-red-600">*</span>
                     </label>
-                    <input 
+                    <input
                         name="foto_kamar"
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"                        
-                        id="foto_kamarroom" 
+                        class="fotos block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        id="foto_kamar"
                         type="file"
-                        accept=".jpg, .jpeg, .png" >
-                    <p class="text-gray-600 text-xs italic">Format JPG atau PNG</p>
-                    @error('foto_kamar')
-                            <div class="text-red-600">
-                                {{$message}}
-                            </div>
-                        @enderror
+                        accept=".jpg, .jpeg, .png"
+                        max="10485760">
+                    <p class="text-gray-600 text-xs italic">Max 10Mb Format JPG atau PNG</p>
                 </div>
+                <div class="notifs dark:text-white"></div>
+                <input type="text" name="url" class="urlimg hidden" value="{{ $data->image }}" required readonly>
                 <div class="grid grid-cols-2 gap-8">
-                    <button type="submit"
-                        class="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Simpan</button>
+                <button type="submit"
+                disabled class="waitsubmit w-full px-4 py-2 mt-4 text-white bg-green-500 rounded hover:bg-green-700">Simpan</button>
                     <a id="cancelButton"
                         class="cursor-pointer w-full px-4 py-2 mt-4 text-green-700 border border-green-500 rounded hover:border-green-700 hover:bg-green-900/20 text-center">Batal</a>
                 </div>
@@ -106,7 +104,6 @@
             </div>
         </div>
     </section>
-    @include('partials.footer')
     <!-- script penyebutan -->
     <script>
     const harga = document.getElementById("harga");

@@ -79,7 +79,10 @@
                     <!-- if status !== "pending" render -->
                     @if($data->status != 'pending')
                         @if ($data->status == 'accepted')
-                        <a href="/register-room/createaccount/{{$data->id}}" class="text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-600 dark:focus:ring-teal-900">Buatkan akun</a>
+                        <a href="/register-room/createaccount/{{$data->id}}" class="flex items-center text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 md:px-3 md:py-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-600 dark:focus:ring-teal-900">
+    <span class="text-center w-full">Buatkan akun</span>
+</a>
+
                         @elseif ($data->status == 'rejected')
                         <form method="post" action="/dashboard/{{$data->id}}/delete">
                             @csrf
@@ -88,7 +91,7 @@
                         @endif
                     @else
                     <!-- Modal toggle -->
-                    <button data-modal-target="user-{{$data->id}}-modal" data-modal-toggle="user-{{$data->id}}-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    <button data-modal-target="user-{{$data->id}}-modal" data-modal-toggle="user-{{$data->id}}-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 md:px-5 md:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     Lihat detail
                     </button>
                     @endif
@@ -125,7 +128,7 @@
                                     <p class="text-lg leading-relaxed text-gray-500 dark:text-gray-400">
                                        Nomor HP : <span class="font-medium text-gray-300">{{$data->phone}}</span>
                                     </p>
-                                    <img class="rounded-md" src="storage/{{$data->image}}" alt="">
+                                    <img class="rounded-md" src="{{$data->image}}" alt="">
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -145,14 +148,14 @@
             </tr>
             @endforeach
             @endif
-            
+
         </tbody>
     </table>
 </div>
 
 <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6 mt-12">Riwayat pembayaran</h1>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+<div class="table-container relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -189,7 +192,7 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$invoice->tanggal_pembayaran}}
                 </th>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 whitespace-nowrap">
                     {{$invoice->user->name}}
                 </td>
                 <td class="px-6 py-4">
@@ -206,9 +209,9 @@
                     @endif
                 </td>
                 <td class="px-6 py-4">
-                    
+
                     <!-- Modal toggle -->
-                    <button data-modal-target="invoice-{{$invoice->id}}-modal" data-modal-toggle="invoice-{{$invoice->id}}-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    <button data-modal-target="invoice-{{$invoice->id}}-modal" data-modal-toggle="invoice-{{$invoice->id}}-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 md:px-5 md:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     Lihat detail
                     </button>
 
@@ -231,7 +234,7 @@
                                 </div>
                                 <!-- Modal body -->
                                 <div class="p-4 md:p-5 space-y-4">
-                                    <img class="rounded-md" src="storage/{{$invoice->image}}" alt="">
+                                    <img class="rounded-md" src="{{$invoice->image}}" alt="">
                                 </div>
                                 <!-- Modal footer -->
                                 @if ($invoice->status == "belum lunas" )
@@ -253,8 +256,8 @@
             </tr>
             @endforeach
         @endif
-            
-            
+
+
         </tbody>
     </table>
 </div>

@@ -61,7 +61,7 @@
             </tr>
         </thead>
         <tbody>
-            @if($datas->isEmpty())                
+            @if($datas->isEmpty())
                 <!-- jika tidak ada data -->
                 <tr>
                     <th scope="row" class="px-6 py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white" colspan="5">Tidak ada pengajuan sewa</th>
@@ -72,7 +72,7 @@
                 <th scope="row" class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <form action="/user/{{$data->id}}" method="post">
                         @method('delete')
-                        @csrf                        
+                        @csrf
                         <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
@@ -87,7 +87,7 @@
                 <td class="px-6 py-4">
                     {{$data->phone}}
                 </td>
-                <td class="px-6 py-4">                                        
+                <td class="px-6 py-4">
                     {{ $data->find($data->id)->room->room_number }}
                 </td>
                 <td class="px-6 py-4 flex">
@@ -131,8 +131,8 @@
                                     </p>
                                     <p class="text-lg leading-relaxed font-medium text-gray-600 dark:text-gray-300">
                                        Identitas KTP/KK
-                                    </p>                                                                
-                                        <img class="rounded-md" src="storage/{{$register_room->where('email', $data->email)->first()->image}}" alt="">
+                                    </p>
+                                        <img class="rounded-md" src="{{$register_room->where('email', $data->email)->first()->image}}" alt="">
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,9 @@
 @extends('layouts.guest')
 @section('content')
-<div class="grid gap-4">        
+<div class="grid gap-4">
         <section class="py-4 flex justify-center">
             <div>
-                <img class="h-auto md:max-h-[400px] max-w-full rounded-lg" src="../../storage/{{ $data->image }}" alt="">
+                <img class="h-auto md:max-h-[400px] max-w-full rounded-lg" src="{{ $data->image }}" alt="">
             </div>
         </section>
         <section class="w-full pt-4 pb-20 px-4 md:w-5/6 mx-auto">
@@ -68,16 +68,19 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div>                                            
+                                        <div>
                                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Foto KTP/KK</label>
-                                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" name="image" type="file">
+                                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="foto_pengajuan" name="image" type="file"accept=".jpg, .jpeg, .png" max="10485760" required>
+                                            <p class="text-gray-600 text-xs italic">Max 10Mb Format JPG atau PNG</p>
                                         </div>
-                                        <button type="submit" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ajukan Penyewaan</button>
+                                        <div class="notifs dark:text-white"></div>
+                                        <input type="text" name="url" id="url" class="urlimg hidden" required readonly>
+                                        <button type="submit" disabled class="waitsubmit w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Ajukan Penyewaan</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="flex flex-col flex-1 gap-2 text-gray-900 dark:text-white">
                     <h5 class="font-light">Deskripsi</h5>

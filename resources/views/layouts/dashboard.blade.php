@@ -18,7 +18,7 @@
         @elseif(Request::is('calculate'))
             Perhitungan Keuangan |
         @else
-            
+
         @endif {{ auth()->user()->role === 'owner' ? 'Owner' : 'Penyewa' }} | Sistem manajemen kos</title>
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -27,6 +27,7 @@
         } else {
             document.documentElement.classList.remove('dark')
         }
+        window.imgurClientId = atob("{{ base64_encode(env('IMGUR_CLIENT_ID')) }}");
     </script>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
